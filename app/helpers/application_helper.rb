@@ -6,10 +6,17 @@ module ApplicationHelper
 
   def count_quantity
     session[:cart] ||= {}
-    sum_quantity = 0
-    return sum_quantity if session[:cart].blank?
+    return 0 if session[:cart].blank?
     sum_quantity = session[:cart].sum do |_key, item|
       item["quantity"]
+    end
+  end
+
+  def calculate_grand_total
+    session[:cart] ||= {}
+    return 0 if session[:cart].blank?
+    grand_total = session[:cart].sum do |_key, item|
+      item["quantity"] * item["price"]
     end
   end
 end

@@ -1,0 +1,23 @@
+<tr>
+  <td>
+    <%= link_to "#", class: "ps-product__preview" do %>
+      <%= show_cart_preview item %> <%= item.product.name %>
+    <% end %>
+  </td>
+  <td><%= item.price %> <%= Settings.unit %></td>
+  <td>
+    <div class="form-group--number">
+      <button product-id="<%= item.product_id %>" class="minus">
+        <span>-</span>
+      </button>
+      <input readonly class="form-control" id="quantity-<%= item.product_id %>" type="text" value="<%= item.quantity %>">
+      <button product-id="<%= item.product_id %>" class="plus">
+        <span>+</span>
+      </button>
+    </div>
+  </td>
+  <td><span id="total-<%= item.product_id %>"><%= item.price * item.quantity %></span> <%= Settings.unit %></td>
+  <td>
+    <%= link_to "", remove_path(item.product_id), class: "ps-remove", method: :delete %>
+  </td>
+</tr>

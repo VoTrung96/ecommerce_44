@@ -1,10 +1,7 @@
 class ApplicationController < ActionController::Base
   protect_from_forgery with: :exception
   include SessionsHelper
-
-  before_action :set_cart
-
-  private
+  include ApplicationHelper
 
   def set_cart
     @cart = session[:cart] ||= {}
