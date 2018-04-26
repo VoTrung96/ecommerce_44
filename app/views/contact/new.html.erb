@@ -1,0 +1,60 @@
+<div class="ps-contact ps-section pb-80">
+  <div class="ps-container">
+    <div class="row">
+      <div class="col-lg-9 col-md-9 col-sm-12 col-xs-12 ">
+        <div class="ps-section__header mb-50">
+          <h2 class="ps-section__title" data-mask="Contact">
+            <%= t ".get_in_touch" %>
+          </h2>
+          <%= form_for(:contact, url: contact_path) do |f| %>
+            <div class="row">
+              <div class="col-lg-6 col-md-6 col-sm-6 col-xs-12 ">
+                <div class="form-group">
+                  <%= f.label t(".name_lable") %>
+                  <%= f.text_field :name, class: "form-control" %>
+                </div>
+              </div>
+              <div class="col-lg-6 col-md-6 col-sm-6 col-xs-12 ">
+                <div class="form-group">
+                  <%= f.label t(".email_lable") %>
+                  <%= f.email_field :email, class: "form-control" %>
+                </div>
+              </div>
+              <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 ">
+                <div class="form-group mb-25">
+                  <%= f.label t(".message_lable") %>
+                  <%= f.text_area :message, class: "form-control", row: "6" %>
+                </div>
+                <div class="form-group">
+                  <%= f.submit t(".btn_text"), class: "ps-btn" %>
+                </div>
+              </div>
+            </div>
+          <% end %>
+        </div>
+      </div>
+      <divv style="margin-top: 155px" class="col-lg-3 col-md-3 col-sm-12 col-xs-12 ">
+        <div class="ps-section__content">
+          <div class="row">
+            <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 ">
+              <div class="ps-contact__block" data-mh="contact-block">
+                <header>
+                  <h3><%= raw t ".city" %></h3>
+                </header>
+                <footer>
+                  <p><i class="fa fa-map-marker"></i><%= t ".address" %></p>
+                  <p>
+                    <i class="fa fa-envelope-o"></i>
+                    <%= link_to t(".mail_to"), "" %>
+                  </p>
+                  <p><i class="fa fa-phone"></i><%= t ".phone" %></p>
+                </footer>
+              </div>
+            </div>
+
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

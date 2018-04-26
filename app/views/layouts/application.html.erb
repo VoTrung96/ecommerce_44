@@ -1,16 +1,19 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
   <head>
-    <title>Ecommerce</title>
+    <title><%= full_title yield(:title) %></title>
     <%= csrf_meta_tags %>
-
     <%= stylesheet_link_tag "application",
       media: "all", "data-turbolinks-track": "reload" %>
     <%= javascript_include_tag "application",
       "data-turbolinks-track": "reload" %>
   </head>
 
-  <body>
-    <%= yield %>
+  <body class="ps-loading">
+    <%= render "layouts/header" %>
+    <main class="ps-main">
+      <%= yield %>
+      <%= render "layouts/footer" %>
+    </main>
   </body>
 </html>
