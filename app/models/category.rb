@@ -1,5 +1,5 @@
 class Category < ApplicationRecord
   has_many :products, dependent: :destroy
 
-  scope :get_sub_categories, ->(parent){where parent_id: parent}
+  scope :get_parent_categories, ->{where parent_id: Settings.category.category_lv0}
 end

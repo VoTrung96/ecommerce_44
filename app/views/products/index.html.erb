@@ -1,8 +1,7 @@
 <div class="ps-products-wrap pt-80 pb-80">
   <div class="ps-products" data-mh="product-listing">
     <div class="ps-product-action">
-      <div class="ps-product__filter">
-      </div>
+      <%= render "sort_by" %>
       <div class="ps-pagination">
         <%= paginate @products, theme: "twitter-bootstrap-3" %>
       </div>
@@ -14,8 +13,7 @@
       <% end %>
     </div>
     <div class="ps-product-action">
-      <div class="ps-product__filter">
-      </div>
+      <%= render "sort_by" %>
       <div class="ps-pagination">
         <%= paginate @products, theme: "twitter-bootstrap-3" %>
       </div>

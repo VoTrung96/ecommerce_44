@@ -11,6 +11,7 @@ class Product < ApplicationRecord
     .group("id").order("sum(cart_contains.quantity) DESC")
     .limit(Settings.product.limit)
   end)
-
   scope :get_lastest_products, ->(number){order(created_at: :desc).limit(number)}
+  scope :get_related_products, ->(id){where(category_id: id).limit(Settings.product.limit)}
+  scope :sort_products, ->(sort){order("#{sort}": :asc)}
 end
