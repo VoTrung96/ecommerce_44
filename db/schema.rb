@@ -54,7 +54,7 @@ ActiveRecord::Schema.define(version: 20180426162335) do
     t.text "delivery_address"
     t.integer "phone_number"
     t.integer "grand_total"
-    t.integer "is_delivery"
+    t.integer "status", default: 0
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["user_id"], name: "index_orders_on_user_id"
@@ -64,7 +64,7 @@ ActiveRecord::Schema.define(version: 20180426162335) do
     t.integer "category_id"
     t.string "name"
     t.text "summary"
-    t.integer "price"
+    t.float "price"
     t.integer "quantity"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
@@ -96,7 +96,7 @@ ActiveRecord::Schema.define(version: 20180426162335) do
     t.text "address"
     t.integer "phone_number"
     t.string "password_degist"
-    t.integer "role"
+    t.integer "role", default: 0
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
