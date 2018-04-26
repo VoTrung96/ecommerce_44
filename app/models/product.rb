@@ -14,4 +14,8 @@ class Product < ApplicationRecord
   scope :get_lastest_products, ->(number){order(created_at: :desc).limit(number)}
   scope :get_related_products, ->(id){where(category_id: id).limit(Settings.product.limit)}
   scope :sort_products, ->(sort){order("#{sort}": :asc)}
+
+  def update_quantity quantity
+    update quantity: quantity
+  end
 end

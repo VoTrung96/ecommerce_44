@@ -10,6 +10,7 @@
 // Read Sprockets README (https://github.com/rails/sprockets#sprockets-directives) for details
 // about supported directives.
 //= require js/jquery.min
+//= require jquery_ujs
 //= require js/bootstrap.min
 //= require js/jquery.barrating.min
 //= require js/owl.carousel.min

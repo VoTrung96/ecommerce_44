@@ -10,3 +10,12 @@ sortby:
   default: "default"
   name: "name"
   price: "price"
+validate:
+  name_max_length: 50
+  email_max_length: 255
+  password_min_length: 6
+  EMAIL_REGEX: !ruby/regexp /\A[\w+\-.]+@[a-z\d\-.]+\.[a-z]+\z/i
+  PHONE_REGEX: !ruby/regexp /\A0\d{9,10}/
+  address_max_length: 255
+  phone_max_length: 11
+quantity: [["Quantity", "1"], ["2", "2"], ["3", "3"], ["4", "4"], ["5", "5"]]
