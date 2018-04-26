@@ -1,5 +1,9 @@
 en:
   base_title: "Shoes Shop"
+  currency: "$"
+  product_price: "$ %{price}"
+  total_price: "<span id='total-%{product_id}'>%{price}</span> $"
+  grand_total_price: "<span id='grandtotal'> %{price} </span> <span>$</span>"
   flash:
     update_profile_success: "Profile updated"
     danger: "something went wrong"
@@ -8,6 +12,9 @@ en:
     login_danger: "Please login to continue"
     user_invalid: "User invalid"
     cart_empty: "Cart is empty. Lets shopping now"
+    order_success: "Thank you for your order"
+    orders_empty: "you dont have any order. lets shopping now"
+    reject_success: "Rejected"
   add_to_cart: "Add to cart"
   header:
     address: "K34/54 Au Co, Da Nang"
@@ -23,6 +30,7 @@ en:
     shoes: "Shoes"
     free_delivery: "<strong>Free delivery</strong>:
       Get free standard delivery on every order with Shoe Store"
+    order: "Your Order"
   footer:
     shoe_shop: "Shoe Shop"
     vts: "VTS"
@@ -121,3 +129,28 @@ en:
       total: "Total"
       check_out: "Process to checkout"
       grand_total: "Grand total:"
+  orders:
+    index:
+      all_order: "All Order"
+      view: "View"
+      view_detail: "View Dtail"
+      status: "Status"
+      reject: "Reject"
+    new:
+      billing_detail: "Billing Detail"
+      your_order: "Your Order"
+      product: "Product"
+      total: "Total"
+      place_order: "Place Order"
+    show:
+      name: "Name"
+      email: "Email"
+      delivery_address: "Delivery Address"
+      phone_number: "Phone Number"
+      date_create: "Date Create"
+      status: "Status"
+      product: "Product"
+      price: "Price"
+      quantity: "Quantity"
+      total: "Total"
+      grand_total: "Grand Total"

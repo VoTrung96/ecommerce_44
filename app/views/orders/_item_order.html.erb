@@ -1,0 +1,10 @@
+<tr>
+  <td>
+    <%= link_to "#", class: "ps-product__preview" do %>
+      <%= show_cart_preview item %> <%= item.product_name %>
+    <% end %>
+  </td>
+  <td><%= t "product_price", price: item.price %></td>
+  <td><%= item.quantity %></td>
+  <td><%= t "product_price", price: cal_total(item.quantity, item.price) %></td>
+</tr>

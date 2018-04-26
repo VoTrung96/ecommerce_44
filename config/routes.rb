@@ -6,12 +6,14 @@ Rails.application.routes.draw do
   post "/login", to: "sessions#create"
   delete "/logout", to: "sessions#destroy"
   post "/signup", to: "users#create"
+  post "/add", to: "carts#add", as: :add
   patch "/change", to: "carts#change", as: :change
   delete "/remove/:id", to: "carts#remove", as: :remove
-  get "/checkout", to: "carts#checkout", as: :checkout
-  post "/add", to: "carts#add", as: :add
+  get "/checkout", to: "orders#new"
+  post "/checkout", to: "orders#create"
   resources :products, only: [:index, :show]
   resources :categories, only: :show
-  resources :users
+  resources :users, expect: [:index, :show, :destroy]
   resources :carts, only: :index
+  resources :orders, only: [:index, :show, :update]
 end

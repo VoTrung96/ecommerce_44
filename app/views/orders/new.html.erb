@@ -1,0 +1,60 @@
+<div class="ps-checkout pt-80 pb-80">
+  <div class="ps-container">
+    <%= form_for(:order, url: checkout_path, class: "ps-checkout__form") do |f| %>
+      <div class="row">
+        <div class="col-lg-8 col-md-8 col-sm-12 col-xs-12 ">
+
+          <div class="ps-checkout__billing">
+            <h3><%= t ".billing_detail" %></h3>
+            <%= render "shared/error_messages", object: @order %>
+            <div class="form-group form-group--inline">
+              <%= f.label t("form.name_lable") %>
+              <%= f.text_field :name, class: "form-control", readonly: "",
+                value: current_user.name %>
+            </div>
+            <div class="form-group form-group--inline">
+              <%= f.label t("form.email_lable") %>
+              <%= f.email_field :email, class: "form-control", readonly: "",
+                value: current_user.email %>
+            </div>
+            <div class="form-group form-group--inline">
+              <%= f.label t("form.phone_lable") %>
+              <%= f.telephone_field :phone_number, class: "form-control" %>
+            </div>
+            <div class="form-group form-group--inline">
+              <%= f.label t("form.address_lable") %>
+              <%= f.text_field :delivery_address, class: "form-control" %>
+            </div>
+          </div>
+        </div>
+        <div class="col-lg-4 col-md-4 col-sm-12 col-xs-12 ">
+          <div class="ps-checkout__order">
+            <header>
+              <h3><%= t ".your_order" %></h3>
+            </header>
+            <div class="content">
+              <table class="table ps-checkout__products">
+                <thead>
+                  <tr>
+                    <th class="text-uppercase"><%= t ".product" %></th>
+                    <th class="text-uppercase"><%= t ".total" %></th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <% if @items.present? %>
+                    <%= render partial: "item_checkout", collection: @items, as: :item %>
+                  <% end %>
+                </tbody>
+              </table>
+            </div>
+            <footer>
+              <div class="form-group paypal">
+                <%= f.submit t("orders.new.place_order"), class: "ps-btn ps-btn--fullwidth" %>
+              </div>
+            </footer>
+          </div>
+        </div>
+      </div>
+    <% end %>
+  </div>
+</div>

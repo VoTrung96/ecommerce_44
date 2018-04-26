@@ -3,14 +3,10 @@ class CartsController < ApplicationController
   before_action :set_cart
   before_action :load_product, only: %i(add change)
   before_action :load_categories, only: :index
-  before_action :check_cart, only: %i(index checkout)
+  before_action :check_cart, only: :index
+  before_action :load_items, only: :index
 
-  def index
-    @items = []
-    @cart.each_value do |item|
-      @items << CartContain.new(item)
-    end
-  end
+  def index; end
 
   def add
     if check_quantity?
@@ -18,9 +14,9 @@ class CartsController < ApplicationController
         quantity: params[:quantity].to_i, price: @product.price
       add_to_cart cart_contain
       session[:cart] = @cart
-      render json: {err: 0, quantity: count_quantity}
+      render json: {err: Settings.err.not_err, quantity: count_quantity}
     else
-      render json: {err: 1}
+      render json: {err: Settings.err.not_enought_quantity}
     end
   end
 
@@ -29,8 +25,8 @@ class CartsController < ApplicationController
       @cart[params[:product_id]]["quantity"] = params[:new_quantity].to_i
       session[:cart] = @cart
       total = params[:new_quantity].to_i * @product.price
-      render json: {err: 0, sum_quantity: count_quantity, total: total,
-                    grand_total: calculate_grand_total}
+      render json: {err: Settings.err.not_err, sum_quantity: count_quantity,
+                    total: total, grand_total: calculate_grand_total}
     else
       render json: {err: 1}
     end
@@ -46,7 +42,7 @@ class CartsController < ApplicationController
 
   def load_product
     @product = Product.find_by id: params[:product_id]
-    render json: {err: 2} if @product.blank?
+    render json: {err: Settings.err.product_not_found} if @product.blank?
   end
 
   def add_to_cart item
@@ -70,12 +66,6 @@ class CartsController < ApplicationController
 
   def load_categories
     @categories = Category.get_parent_categories
-  end
-
-  def check_cart
-    return if @cart.present?
-    flash[:danger] = t "flash.cart_empty"
-    redirect_to root_path
   end
 
   def check_new_quantity?

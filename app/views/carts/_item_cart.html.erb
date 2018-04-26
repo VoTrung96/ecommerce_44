@@ -4,7 +4,7 @@
       <%= show_cart_preview item %> <%= item.product.name %>
     <% end %>
   </td>
-  <td><%= item.price %> <%= Settings.unit %></td>
+  <td><%= t "product_price", price: item.price %></td>
   <td>
     <div class="form-group--number">
       <button product-id="<%= item.product_id %>" class="minus">
@@ -16,7 +16,7 @@
       </button>
     </div>
   </td>
-  <td><span id="total-<%= item.product_id %>"><%= item.price * item.quantity %></span> <%= Settings.unit %></td>
+  <td><%= raw t "total_price", product_id: item.product_id, price: cal_total(item.quantity, item.price) %></td>
   <td>
     <%= link_to "", remove_path(item.product_id), class: "ps-remove", method: :delete %>
   </td>
