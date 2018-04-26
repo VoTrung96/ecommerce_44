@@ -1,0 +1,21 @@
+a<div class="grid-item">
+  <div class="grid-item__content-wrapper">
+    <div class="ps-shoe mb-30">
+      <div class="ps-shoe__thumbnail">
+        <%= show_cover_image product %>
+        <%= link_to "", "", class: "ps-shoe__overlay" %>
+      </div>
+      <div class="ps-shoe__content">
+        <div class="ps-shoe__variants">
+          <div class="ps-shoe__variant normal">
+            <%= show_product_images product %>
+          </div>
+        </div>
+        <div class="ps-shoe__detail">
+          <%= link_to product.name, "", class: "ps-shoe__name" %>
+          <span class="ps-shoe__price"><%= product.price %> $</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
