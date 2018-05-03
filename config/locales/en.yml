@@ -1,33 +1,53 @@
-# Files in the config/locales directory are used for internationalization
-# and are automatically loaded by Rails. If you want to use locales other
-# than English, add the necessary files in this directory.
-#
-# To use the locales, use `I18n.t`:
-#
-#     I18n.t 'hello'
-#
-# In views, this is aliased to just `t`:
-#
-#     <%= t('hello') %>
-#
-# To use a different locale, set it with `I18n.locale`:
-#
-#     I18n.locale = :es
-#
-# This would use the information in config/locales/es.yml.
-#
-# The following keys must be escaped otherwise they will not be retrieved by
-# the default I18n backend:
-#
-# true, false, on, off, yes, no
-#
-# Instead, surround them with single quotes.
-#
-# en:
-#   'true': 'foo'
-#
-# To learn more, please read the Rails Internationalization guide
-# available at http://guides.rubyonrails.org/i18n.html.
-
 en:
-  hello: "Hello world"
+  base_title: "Shoes Shop"
+  header:
+    address: "K34/54 Au Co, Da Nang"
+    login_and_register: "Login & Regiser"
+    home: "Home"
+    shop_now: "Shop Now"
+    contact: "Contact"
+    suggest: "Suggest"
+    shoes: "Shoes"
+    free_delivery: "<strong>Free delivery</strong>:
+      Get free standard delivery on every order with Shoe Store"
+  footer:
+    shoe_shop: "Shoe Shop"
+    vts: "VTS"
+    copy_right: ", Inc. All rights Resevered. Design by"
+  slider:
+    banner1_header: "<p>March 2002 <br> Nike SB Dunk Low Pro</p>"
+    banner1_title: "<p class='text-uppercase'>SUBA</p>"
+    banner1_description: "<p>Supa wanted something that was going to rep
+      his East Coast <br> roots and, more specifically,
+      his hometown of <br/> New York City in  a big way.</p>"
+    banner2_header: "<p>BEST ITEM <br> THIS SUMMER</p>"
+    banner2_title: "<p class='text-uppercase'>Recovery</p>"
+    banner2_description: "<p>Supa wanted something that was going to rep
+      his East Coast <br> roots and, more specifically, his hometown of <br/>
+      New York City in  a big way.</p>"
+    banner_btn_text: "Purchase Now"
+  static_pages:
+    home:
+      title: "Home"
+      features: "Features"
+      features_products: "- FEATURES PRODUCTS"
+      lastest: "LASTEST"
+      lastest_products: "- LASTEST PRODUCTS"
+      prev: "Prev"
+      next: "Next"
+      author: "Logan May - CEO & Founder Invision"
+      quote: "“Dessert pudding dessert jelly beans cupcake sweet caramels gingerbread.
+        Fruitcake biscuit cheesecake.
+        Cookie topping sweet muffin pudding tart bear claw sugar plum croissant.“"
+  contact:
+    new:
+      contact: "Contact"
+      get_in_touch: "Get In Touch"
+      btn_text: "Send Message"
+      city: "VN <span> Da Nang</span>"
+      address: "K34/54 Au Co"
+      mail_to: "vts@gmail.com"
+      phone: "(+84)97 3857 454"
+      name_lable: "Name"
+      email_lable: "Email"
+      message_lable: "Your Message"
