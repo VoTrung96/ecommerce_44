@@ -10,6 +10,10 @@ en:
     shoes: "Shoes"
     free_delivery: "<strong>Free delivery</strong>:
       Get free standard delivery on every order with Shoe Store"
+  flash:
+    user_invalid: "User invalid"
+    danger: "Something went wrong"
+    wellcome: "wellcome to Shoe Shop"
   footer:
     shoe_shop: "Shoe Shop"
     vts: "VTS"

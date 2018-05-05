@@ -12,6 +12,10 @@
   <body class="ps-loading">
     <%= render "layouts/header" %>
     <main class="ps-main">
+      <% flash.each do |message_type, message| %>
+        <div style="text-align: center;" class="alert alert-<%= message_type %>"><%= message %>
+        </div>
+      <% end %>
       <%= yield %>
       <%= render "layouts/footer" %>
     </main>
