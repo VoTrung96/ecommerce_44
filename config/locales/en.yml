@@ -26,10 +26,16 @@ en:
       his East Coast <br> roots and, more specifically, his hometown of <br/>
       New York City in  a big way.</p>"
     banner_btn_text: "Purchase Now"
-  left_bar:
-    category: "Category"
-    price: "Price"
-    filter: "Filter"
+  form:
+    name_lable: "Name"
+    email_lable: "Email"
+    address_lable: "Address"
+    phone_lable: "Phone Number"
+    password_lable: "Password"
+    password_confirm_lable: "Password Confirmation"
+  shared_error:
+    one: "The form contains %{count} error."
+    other: "The form contains %{count} errors."
   static_pages:
     home:
       title: "Home"
@@ -55,3 +61,6 @@ en:
       name_lable: "Name"
       email_lable: "Email"
       message_lable: "Your Message"
+  users:
+    new:
+      signup: "Sign Up"
