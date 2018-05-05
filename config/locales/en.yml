@@ -1,8 +1,18 @@
 en:
   base_title: "Shoes Shop"
+  flash:
+    update_profile_success: "Profile updated"
+    danger: "something went wrong"
+    wellcome: "Wellcome to Shoe Shop"
+    session_danger: "Email or password is incorrect"
+    login_danger: "Please login to continue"
   header:
     address: "K34/54 Au Co, Da Nang"
-    login_and_register: "Login & Regiser"
+    login: "Login"
+    logout: "Logout"
+    profile: "Profile"
+    register: "Register"
+    account: "Your Account"
     home: "Home"
     shop_now: "Shop Now"
     contact: "Contact"
@@ -38,6 +48,17 @@ en:
     default: "Sort By"
     name: "Name(A-Z)"
     price: "Price(Low to Hight)"
+  form:
+    name_lable: "Name"
+    email_lable: "Email"
+    address_lable: "Address"
+    phone_lable: "Phone Number"
+    password_lable: "Password"
+    password_confirm_lable: "Password Confirmation"
+    remember_lable: "Remember me?"
+  shared_error:
+    one: "The form contains %{count} error."
+    other: "The form contains %{count} errors."
   static_pages:
     home:
       title: "Home"
@@ -75,3 +96,12 @@ en:
       review: "REVIEW"
       comments: "COMMENTS"
       quick_review: "QUICK REVIEW"
+  users:
+    new:
+      signup: "Sign Up"
+    edit:
+      btn_text: "Update"
+      profile: "Profile"
+  sessions:
+    new:
+      login: "Login"
