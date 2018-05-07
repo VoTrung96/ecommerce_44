@@ -1,0 +1,10 @@
+<% init_level %>
+<li <%= active_current_category category %>>
+  <%= link_to category.name, category %>
+  <% if @hash_categories[category.id].present? %>
+    <ul class="ps-list--checked <%= add_class_multilevel %>">
+      <%= render partial: "categories/category_in_leftbar",
+        collection: @hash_categories[category.id], as: :category %>
+    </ul>
+  <% end %>
+</li>

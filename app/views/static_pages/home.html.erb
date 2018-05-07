@@ -12,7 +12,7 @@
         <div class="ps-masonry">
           <div class="grid-sizer"></div>
           <% if @features_products.present? %>
-            <%= render partial: "products/product",
+            <%= render partial: "products/product_grid",
             collection: @features_products, as: :product %>
           <% end %>
         </div>
@@ -65,7 +65,7 @@
       <div class="ps-testimonial">
         <div class="ps-testimonial__thumbnail">
           <%= image_tag "user/1.jpg" %><i class="fa fa-quote-left"></i>
-        </div>
+       </div>
         <header>
           <select class="ps-rating">
             <option value="1">1</option>

@@ -26,6 +26,10 @@ en:
       his East Coast <br> roots and, more specifically, his hometown of <br/>
       New York City in  a big way.</p>"
     banner_btn_text: "Purchase Now"
+  left_bar:
+    category: "Category"
+    price: "Price"
+    filter: "Filter"
   static_pages:
     home:
       title: "Home"

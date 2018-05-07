@@ -2,3 +2,4 @@ product:
   limit: 8
 category:
   category_lv0: 0
+unit: "$"

@@ -3,7 +3,7 @@
     <div class="ps-shoe mb-30">
       <div class="ps-shoe__thumbnail">
         <%= show_cover_image product %>
-        <%= link_to "", "", class: "ps-shoe__overlay" %>
+        <%= link_to "", product, class: "ps-shoe__overlay" %>
       </div>
       <div class="ps-shoe__content">
         <div class="ps-shoe__variants">
@@ -12,8 +12,8 @@
           </div>
         </div>
         <div class="ps-shoe__detail">
-          <%= link_to product.name, "", class: "ps-shoe__name" %>
-          <span class="ps-shoe__price"><%= product.price %> $</span>
+          <%= link_to product.name, product, class: "ps-shoe__name" %>
+          <span class="ps-shoe__price"><%= product.price %> <%= Settings.unit %></span>
         </div>
       </div>
     </div>

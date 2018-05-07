@@ -31,7 +31,10 @@
           <li class="menu-item menu-item-has-children dropdown">
             <%= link_to t("header.shoes"), "" %>
             <ul class="sub-menu">
-              <li class="menu-item"><%= link_to "", "" %></li>
+              <% if @categories.present? %>
+                <%= render partial: "categories/sub_category_menu",
+                  collection: @categories, as: :category %>
+              <% end %>
             </ul>
           </li>
           <li class="menu-item">
