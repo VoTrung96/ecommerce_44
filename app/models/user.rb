@@ -1,4 +1,6 @@
 class User < ApplicationRecord
+  attr_accessor :remember_token
+
   has_many :comments, dependent: :destroy
   has_many :ratings, dependent: :destroy
   has_many :orders, dependent: :destroy
@@ -29,6 +31,25 @@ class User < ApplicationRecord
            end
     BCrypt::Password.create(string, cost: cost)
   end
+
+  def self.new_token
+    SecureRandom.urlsafe_base64
+  end
+
+  def remember
+    self.remember_token = User.new_token
+    update remember_digest: User.digest(remember_token)
+  end
+
+  def authenticated? token
+    BCrypt::Password.new(remember_digest).is_password? token
+  end
+
+  def forget
+    update remember_digest: nil
+  end
+
+  private
 
   def downcase_email
     self.email = email.downcase
