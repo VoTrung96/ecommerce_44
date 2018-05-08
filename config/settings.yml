@@ -2,4 +2,11 @@ product:
   limit: 8
 category:
   category_lv0: 0
-unit: "$"
+validate:
+  name_max_length: 50
+  email_max_length: 255
+  password_min_length: 6
+  EMAIL_REGEX: !ruby/regexp /\A[\w+\-.]+@[a-z\d\-.]+\.[a-z]+\z/i
+  PHONE_REGEX: !ruby/regexp /\A0\d{9,10}/
+  address_max_length: 255
+  phone_max_length: 11
