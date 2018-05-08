@@ -1,0 +1,77 @@
+<div class="ps-product--detail pt-60">
+  <div class="ps-container">
+    <div class="row">
+      <div class="col-lg-10 col-md-12 col-lg-offset-1">
+        <div class="ps-product__thumbnail">
+          <div class="ps-product__preview">
+            <div class="ps-product__variants">
+              <% if @images.present? %>
+                <%= render partial: "preview_image",
+                  collection: @images, as: :image %>
+              <% end %>
+            </div>
+          </div>
+          <div class="ps-product__image">
+            <% if @images.present? %>
+              <%= render partial: "image_zoom",
+                collection: @images, as: :image %>
+            <% end %>
+          </div>
+        </div>
+        <div class="ps-product__info">
+          <div class="ps-product__rating">
+          </div>
+          <h1><%= @product.name %></h1>
+          <h3 class="ps-product__price"><%= @product.price %> $</h3>
+          <div class="ps-product__block ps-product__quickview">
+            <h4><%= t ".quick_review" %></h4>
+            <p><%= @product.summary %></p>
+          </div>
+          <div class="ps-product__shopping">
+            <%= link_to "", :class => "ps-btn mb-10" do %>
+              <%= t ".add_to_cart" %><i class="ps-icon-next"></i>
+            <% end %>
+            <div class="ps-product__actions">
+              <%= link_to "#" do %>
+                <i class="ps-icon-share"></i>
+              <% end %>
+            </div>
+          </div>
+        </div>
+        <div class="clearfix"></div>
+      </div>
+    </div>
+  </div>
+</div>
+<div class="ps-section ps-section--top-sales ps-owl-root pt-40 pb-80">
+  <div class="ps-container">
+    <div class="ps-section__header mb-50">
+      <div class="row">
+        <div class="col-lg-9 col-md-9 col-sm-12 col-xs-12 ">
+          <h3 class="ps-section__title" data-mask="<%= t ".related_item" %>">
+          <%= t ".also_like" %>
+          </h3>
+        </div>
+        <div class="col-lg-3 col-md-3 col-sm-12 col-xs-12 ">
+          <div class="ps-owl-actions">
+            <%= link_to "#", :class => "ps-prev" do %>
+              <i class="ps-icon-arrow-right"></i><%= t ".prev" %>
+            <% end %>
+            <%= link_to "#", :class => "ps-next" do %>
+              <%= t ".next" %><i class="ps-icon-arrow-left"></i>
+            <% end %>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="ps-section__content">
+      <div class="ps-owl--colection owl-slider" data-owl-auto="true" data-owl-loop="true" data-owl-speed="5000" data-owl-gap="30" data-owl-nav="false" data-owl-dots="false" data-owl-item="4" data-owl-item-xs="1" data-owl-item-sm="2" data-owl-item-md="3" data-owl-item-lg="4" data-owl-duration="1000" data-owl-mousedrag="on">
+        <% if @related_products.present? %>
+          <%= render partial: "products/product_carousel",
+            collection: @related_products, as: :product %>
+        <% end %>
+
+      </div>
+    </div>
+  </div>
+</div>

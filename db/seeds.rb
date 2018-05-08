@@ -8,11 +8,15 @@ Product.create!(category_id: 1,
                 quantity: 3)
 59.times do |n|
   name = Faker::Name.name
-  price =   n
+  price =   n + 1
   quantity = n
   Product.create!(category_id: 1,
                 name: name,
-                summary: "Summer shoe",
+                summary: name,
                 price: price,
                 quantity: quantity)
+  4.times do |m|
+    Image.create!(product_id: n + 1,
+                name: "shoe-detail/1.jpg")
+  end
 end
