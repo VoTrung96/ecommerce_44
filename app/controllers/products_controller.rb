@@ -5,7 +5,7 @@ class ProductsController < ApplicationController
 
   def index
     @sort = params[:sort] || Settings.sortby.default
-    filter_products @sort
+    filter_products
   end
 
   def show
@@ -28,8 +28,8 @@ class ProductsController < ApplicationController
     redirect_to products_path if @product.blank?
   end
 
-  def filter_products sort
-    @products = if sort == Settings.sortby.default
+  def filter_products
+    @products = if @sort == Settings.sortby.default
                   Product.all.page(params[:page])
                     .per(Settings.product.per_page)
                 else

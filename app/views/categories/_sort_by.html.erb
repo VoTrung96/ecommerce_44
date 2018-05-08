@@ -1,0 +1,8 @@
+<div class="ps-product__filter">
+  <%= form_tag @category, method: :get do %>
+    <%= select_tag("sort", options_for_select([[t("sort_by.default"),
+      Settings.sortby.default], [t("sort_by.name"), Settings.sortby.name],
+      [t("sort_by.price"), Settings.sortby.price]], selected: @sort),
+      {:class => "ps-select selectpicker", :onchange => "this.form.submit()"}) %>
+  <% end %>
+</div>
