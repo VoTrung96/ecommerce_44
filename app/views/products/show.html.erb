@@ -27,8 +27,14 @@
             <h4><%= t ".quick_review" %></h4>
             <p><%= @product.summary %></p>
           </div>
+          <div class="ps-product__block ps-product__size">
+            <h4></h4>
+            <%= select_tag("quantity", options_for_select(Settings.quantity),
+              {:class => "ps-select selectpicker", :id => "quantity"}) %>
+          </div>
           <div class="ps-product__shopping">
-            <%= link_to "", :class => "ps-btn mb-10" do %>
+            <%= link_to "javascript:void(0)", :class =>
+              "item_add ps-btn mb-10", "product-id" => @product.id do %>
               <%= t ".add_to_cart" %><i class="ps-icon-next"></i>
             <% end %>
             <div class="ps-product__actions">

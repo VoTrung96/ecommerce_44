@@ -6,6 +6,8 @@ en:
     wellcome: "Wellcome to Shoe Shop"
     session_danger: "Email or password is incorrect"
     login_danger: "Please login to continue"
+    user_invalid: "User invalid"
+  add_to_cart: "Add to cart"
   header:
     address: "K34/54 Au Co, Da Nang"
     login: "Login"
@@ -20,10 +22,6 @@ en:
     shoes: "Shoes"
     free_delivery: "<strong>Free delivery</strong>:
       Get free standard delivery on every order with Shoe Store"
-  flash:
-    user_invalid: "User invalid"
-    danger: "Something went wrong"
-    wellcome: "wellcome to Shoe Shop"
   footer:
     shoe_shop: "Shoe Shop"
     vts: "VTS"
@@ -59,6 +57,12 @@ en:
   shared_error:
     one: "The form contains %{count} error."
     other: "The form contains %{count} errors."
+  left_bar:
+    category: "Category"
+  sort_by:
+    default: "Sort By"
+    name: "Name(A-Z)"
+    price: "Price(low to hight)"
   static_pages:
     home:
       title: "Home"
@@ -84,6 +88,9 @@ en:
       name_lable: "Name"
       email_lable: "Email"
       message_lable: "Your Message"
+  users:
+    new:
+      signup: "Sign Up"
   products:
     index:
       category: "Category"

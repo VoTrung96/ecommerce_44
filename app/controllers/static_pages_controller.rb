@@ -1,6 +1,6 @@
 class StaticPagesController < ApplicationController
   def home
-    @categories = Category.get_sub_categories Settings.category.category_lv0
+    @categories = Category.get_parent_categories
     @features_products = Product.get_feature_products
     @lastest_products = Product.get_lastest_products Settings.product.limit
   end
