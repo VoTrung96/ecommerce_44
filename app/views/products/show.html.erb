@@ -20,9 +20,12 @@
         </div>
         <div class="ps-product__info">
           <div class="ps-product__rating">
+            <%= select_tag("rating[score]", options_for_select(Settings.score,
+              selected: @avg_score), {:class => "ps-rating"}) %>
+            (<%= @avg_score%> / <%= @ratings.size %>)
           </div>
           <h1><%= @product.name %></h1>
-          <h3 class="ps-product__price"><%= @product.price %> $</h3>
+          <h3 class="ps-product__price"><%= t "product_price", price: @product.price %></h3>
           <div class="ps-product__block ps-product__quickview">
             <h4><%= t ".quick_review" %></h4>
             <p><%= @product.summary %></p>
@@ -45,6 +48,38 @@
           </div>
         </div>
         <div class="clearfix"></div>
+        <div class="ps-product__content mt-50">
+          <ul class="tab-list" role="tablist">
+            <li class="active">
+              <%= link_to t(".review"), "#tab_01", :aria =>
+                {controls: "tab_01"}, role: "tab", :data => {toggle: "tab"} %>
+            </li>
+            <li>
+              <%= link_to t(".comments"), "#tab_02", :aria =>
+                {controls: "tab_02"}, role: "tab", :data => {toggle: "tab"} %>
+            </li>
+          </ul>
+        </div>
+        <div class="tab-content mb-60">
+          <div class="tab-pane active" role="tabpanel" id="tab_01">
+            <% if @ratings.present? %>
+              <%= render partial: "ratings/rating", collection: @ratings, as: :rating %>
+            <% end %>
+            <% if @rating.blank? %>
+              <%= render "ratings/form" %>
+            <% end %>
+          </div>
+
+          <div class="tab-pane" role="tabpanel" id="tab_02">
+            <div id="comments">
+              <% if @comments.present? %>
+                <%= render partial: "comments/comment", collection:
+                  @comments, as: :comment %>
+              <% end %>
+            </div>
+            <%= render "comments/form" %>
+          </div>
+        </div>
       </div>
     </div>
   </div>

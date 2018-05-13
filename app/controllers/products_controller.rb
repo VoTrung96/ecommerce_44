@@ -11,6 +11,11 @@ class ProductsController < ApplicationController
   def show
     @related_products = Product.get_related_products @product.category_id
     @images = @product.images
+    @ratings = @product.ratings.sort_by_created_at
+    @rating = Rating.find_by(product_id: @product.id, user_id: current_user.id) if current_user.present?
+    @avg_score = calculate_avg_score @ratings
+    @comments = @product.comments.sort_by_created_at
+    store_location
   end
 
   private
@@ -36,5 +41,10 @@ class ProductsController < ApplicationController
                   Product.sort_products(@sort).page(params[:page])
                     .per(Settings.product.per_page)
                 end
+  end
+
+  def calculate_avg_score ratings
+    return 0 if ratings.blank?
+    ratings.sum(&:score) / ratings.size
   end
 end

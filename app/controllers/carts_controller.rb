@@ -28,7 +28,7 @@ class CartsController < ApplicationController
       render json: {err: Settings.err.not_err, sum_quantity: count_quantity,
                     total: total, grand_total: calculate_grand_total}
     else
-      render json: {err: 1}
+      render json: {err: Settings.err.not_enought_quantity}
     end
   end
 
