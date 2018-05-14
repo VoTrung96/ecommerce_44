@@ -37,6 +37,7 @@ en:
   alert:
     wrong: "alert('something went wrong')"
     product_not_found: "alert('product not found')"
+    image_not_found: "alert('image not found')"
   confirm:
     are_you_sure: "Are you sure?"
   add_to_cart: "Add to cart"
@@ -92,6 +93,12 @@ en:
     category_name_lable: "Category Name"
     parent_lable: "Parent"
     submit: "Submit"
+    product_name_lable: "Product Name"
+    category_lable: "Category"
+    price_lable: "Price"
+    quantity_lable: "Quantity"
+    summary_lable: "Summary"
+    image_label: "Images"
   shared_error:
     one: "The form contains %{count} error."
     other: "The form contains %{count} errors."
@@ -217,6 +224,7 @@ en:
         category: "Category"
         action: "Action"
         management_products: "Management Products"
+        number: "No."
     orders:
       index:
         customer: "Customer"
@@ -230,3 +238,7 @@ en:
         number: "No."
       show:
         order_detail: "Order Detail"
+      new:
+        add_new: "Add new product"
+      edit:
+        update: "Update product"

@@ -8,7 +8,7 @@ class CartContain < ApplicationRecord
   after_save :update_grand_total
 
   def return_quantity
-    product.update quantity: product.quantity + quantity unless order.accept?
+    product.update quantity: product.quantity + quantity if order.reject?
   end
 
   private

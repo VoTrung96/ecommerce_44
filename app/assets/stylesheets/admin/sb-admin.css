@@ -550,7 +550,7 @@ footer.sticky-footer {
   opacity: 1;
 }
 .ps-pagination .pagination li.active {
- border: none;
+  border: none;
 }
 .ps-pagination .pagination li.active a {
   color: #fff;
@@ -575,4 +575,55 @@ footer.sticky-footer {
     width: 35px;
     height: 35px;
   }
+}
+
+.remove {
+  position: absolute;
+  left: 80px;
+  font-size: 1.5rem;
+  font-weight: 700;
+  line-height: 1;
+  color: #000;
+  text-shadow: 0 1px 0 #fff;
+  opacity: .5;
+  z-index: 3;
+  cursor: pointer;
+}
+
+.myFile {
+  position: relative;
+  overflow: hidden;
+  float: left;
+  margin-right: 10px;
+}
+.myFile input[type="file"] {
+  display: block;
+  position: absolute;
+  top: 0;
+  opacity: 0;
+  font-size: 100px;
+  filter: alpha(opacity=0);
+  cursor: pointer;
+}
+
+.myFile input[type="text"] {
+  display: block;
+  position: absolute;
+  top: 0;
+  opacity: 0;
+  font-size: 100px;
+  filter: alpha(opacity=0);
+  cursor: pointer;
+}
+
+.input-plus {
+  background-color: #e9ecef;
+  padding: 35px;
+  text-align: center;
+  display: inline-block;
+  width: 100px;
+  height: 100px;
+}
+.clear {
+  clear: both;
 }
