@@ -1,0 +1,53 @@
+<div class="ps-content pt-80 pb-80">
+  <div class="ps-container">
+    <div class="ps-cart-listing ps-table--whishlist">
+      <table class="table ps-cart__table">
+        <thead>
+          <tr>
+            <th><%= t ".name" %></th>
+            <th><%= @order.user_name %></th>
+          </tr>
+          <tr>
+            <th><%= t ".email" %></th>
+            <th><%= @order.user_email %></th>
+          </tr>
+          <tr>
+            <th><%= t ".delivery_address" %></th>
+            <th><%= @order.delivery_address %></th>
+          </tr>
+          <tr>
+            <th><%= t ".phone_number" %></th>
+            <th><%= @order.phone_number %></th>
+          </tr>
+          <tr>
+            <th><%= t ".date_create" %></th>
+            <th><%= @order.created_at %></th>
+          </tr>
+          <tr>
+            <th><%= t ".status" %></th>
+            <th><%= @order.status %></th>
+          </tr>
+        </thead>
+      </table>
+      <table class="table ps-cart__table">
+        <thead>
+          <tr>
+            <th><%= t ".product" %></th>
+            <th><%= t ".price" %></th>
+            <th><%= t ".quantity" %></th>
+            <th><%= t ".total" %></th>
+          </tr>
+        </thead>
+        <tbody>
+          <%= render partial: "item_order", collection: @order.cart_contains, as: :item %>
+          <tr>
+            <td class="ps-product-link" colspan="4">
+              <%= t ".grand_total" %>
+              <%= t "product_price", price: @order.grand_total %>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</div>

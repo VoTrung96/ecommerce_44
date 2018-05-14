@@ -50,13 +50,6 @@ class UsersController < ApplicationController
       :password, :password_confirmation
   end
 
-  def logged_in_user
-    return if logged_in?
-    store_location
-    flash[:danger] = t "flash.login_danger"
-    redirect_to login_url
-  end
-
   def correct_user
     redirect_to root_url unless current_user? @user
   end

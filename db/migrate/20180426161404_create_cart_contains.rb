@@ -4,7 +4,7 @@ class CreateCartContains < ActiveRecord::Migration[5.1]
       t.references :order, foreign_key: true
       t.references :product, foreign_key: true
       t.integer :quantity
-      t.integer :price
+      t.float :price
 
       t.timestamps
     end

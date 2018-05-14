@@ -22,8 +22,7 @@
         </div>
         <div class="ps-cart__total">
           <h3><%= t ".grand_total" %>
-            <span id="grandtotal"> <%= calculate_grand_total %> </span>
-            <span><%= Settings.unit %></span>
+            <%= raw t "grand_total_price", price: calculate_grand_total %>
           </h3>
           <%= link_to checkout_path, class: "ps-btn" do %>
             <%= t ".checkout" %><i class="ps-icon-next"></i>

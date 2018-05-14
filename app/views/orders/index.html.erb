@@ -1,0 +1,22 @@
+<div class="ps-content pt-80 pb-80">
+  <div class="ps-container">
+    <div class="ps-cart-listing ps-table--whishlist">
+      <table class="table ps-cart__table">
+        <thead>
+          <tr>
+            <th><%= t ".all_order" %></th>
+            <th><%= t ".view" %></th>
+            <th><%= t ".status" %></th>
+            <th><%= t ".reject" %></th>
+          </tr>
+        </thead>
+        <tbody>
+          <%= render partial: "order", collection: @orders, as: :order %>
+        </tbody>
+      </table>
+      <div class="ps-pagination">
+        <%= paginate @orders, theme: "twitter-bootstrap-3" %>
+      </div>
+    </div>
+  </div>
+</div>

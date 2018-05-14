@@ -5,7 +5,6 @@ product:
   per_page: 12
 category:
   category_lv0: 0
-unit: "$"
 sortby:
   default: "default"
   name: "name"
@@ -19,3 +18,14 @@ validate:
   address_max_length: 255
   phone_max_length: 11
 quantity: [["Quantity", "1"], ["2", "2"], ["3", "3"], ["4", "4"], ["5", "5"]]
+status:
+  pendding: "pendding"
+  pendding_status: 0
+  accept_status: 1
+  reject_status: 2
+order:
+  per_page: 5
+err:
+  not_err: 0
+  product_not_found: 2
+  not_enought_quantity: 1

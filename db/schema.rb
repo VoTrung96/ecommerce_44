@@ -10,13 +10,13 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20180426162335) do
+ActiveRecord::Schema.define(version: 20180506084641) do
 
   create_table "cart_contains", force: :cascade do |t|
     t.integer "order_id"
     t.integer "product_id"
     t.integer "quantity"
-    t.integer "price"
+    t.float "price"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["order_id"], name: "index_cart_contains_on_order_id"
@@ -52,8 +52,8 @@ ActiveRecord::Schema.define(version: 20180426162335) do
   create_table "orders", force: :cascade do |t|
     t.integer "user_id"
     t.text "delivery_address"
-    t.integer "phone_number"
-    t.integer "grand_total"
+    t.string "phone_number"
+    t.float "grand_total", default: 0.0
     t.integer "status", default: 0
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
@@ -94,11 +94,12 @@ ActiveRecord::Schema.define(version: 20180426162335) do
     t.string "name"
     t.string "email"
     t.text "address"
-    t.integer "phone_number"
+    t.string "phone_number"
     t.string "password_digest"
     t.integer "role", default: 0
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.string "remember_digest"
     t.index ["email"], name: "index_users_on_email", unique: true
   end
 
