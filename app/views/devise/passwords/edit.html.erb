@@ -13,16 +13,14 @@
               <div class="form-group">
                 <%= f.label :password, t("form.new_password_lable") %><br />
                 <% if @minimum_password_length %>
-                  <em>(<%= t "users.password.password_min",
-                    min: @minimum_password_length %>)</em><br />
+                  <em>(<%= @minimum_password_length %> characters minimum)</em><br />
                 <% end %>
                 <%= f.password_field :password, class: "form-control" %>
               </div>
               <div class="form-group">
                 <%= f.label :password_confirmation, t("form.password_confirm_lable") %><br />
                 <% if @minimum_password_length %>
-                  <em>(<%= t "users.password.password_min",
-                    min: @minimum_password_length %>)</em><br />
+                  <em>(<%= @minimum_password_length %> characters minimum)</em><br />
                 <% end %>
                 <%= f.password_field :password_confirmation, class: "form-control" %>
               </div>

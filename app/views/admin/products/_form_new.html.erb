@@ -1,0 +1,38 @@
+<%= form_for([:admin, @product], multipart: true) do |f| %>
+  <%= render "shared/error_messages", object: @product %>
+  <div class="row">
+    <div class="form-group col-md-6">
+      <%= f.label t("form.product_name_lable") %>
+      <%= f.text_field :name, class: "form-control" %>
+    </div>
+    <div class="form-group col-md-6">
+      <%= f.label t("form.category_lable") %>
+      <%= f.select :category_id ,show_select_categories, {},
+        class: "form-control" %>
+    </div>
+    <div class="form-group col-md-6">
+      <%= f.label t("form.price_lable") %>
+      <%= f.text_field :price, class: "form-control" %>
+    </div>
+    <div class="form-group col-md-6">
+      <%= f.label t("form.quantity_lable") %>
+      <%= f.text_field :quantity, class: "form-control" %>
+    </div>
+    <div class="form-group col-md-12">
+      <%= f.label t("form.summary_lable") %>
+      <%= f.text_area :summary, class: "form-control", row: "8" %>
+    </div>
+    <div class="form-group col-md-12">
+      <div class="input-file">
+        <%= render partial: "input_file", locals: {f: f} %>
+      </div>
+      <%= add_input_file f %>
+      <div class="clear"></div>
+    </div>
+  </div>
+  <div class="row">
+    <div class="form-group col-md-6">
+      <%= f.submit t("form.submit"), class: "btn btn-primary" %>
+    </div>
+  </div>
+<% end %>

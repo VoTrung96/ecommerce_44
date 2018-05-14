@@ -1,0 +1,16 @@
+<tr>
+  <td>
+    <input class="checkbox" name="ids" id="<%= comment.id %>" type="checkbox" />
+  </td>
+  <td><%= comment.user_name %></td>
+  <td>
+    <%= link_to "#", class: "ps-product__preview" do %>
+      <%= show_product_preview comment.product %> <%= comment.product_name %>
+    <% end %>
+  </td>
+  <td><%= comment.content %></td>
+  <td>
+    <%= link_to "", admin_comment_path(comment), class: "fa fa-trash",
+      method: :delete, data: {confirm: t("confirm.are_you_sure")} %>
+  </td>
+</tr>

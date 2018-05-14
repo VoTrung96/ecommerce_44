@@ -1,0 +1,7 @@
+<%= f.fields_for :images do |p| %>
+  <div class="myFile">
+    <%= content_tag :p, "x", class: "remove", onclick: "removeInput(this)" %>
+    <%= image_tag "upload.png", size: "100x100" %>
+    <%= p.file_field :name, onchange: "previewImage(this)" %>
+  </div>
+<% end %>

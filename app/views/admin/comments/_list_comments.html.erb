@@ -1,0 +1,27 @@
+<div class="row">
+  <table class="table table-bordered" width="100%" cellspacing="0">
+    <thead>
+      <tr>
+        <th width="5%"><input id="checkAll" name="checkAll" type="checkbox" /></th>
+        <th>
+          <%= sort_link @search, :user_name, t("admin.comments.index.username"), {default_order: :asc}, {remote: true} %>
+        </th>
+        <th>
+          <%= sort_link @search, :product_name,
+            t("admin.comments.index.product_name"), {default_order: :asc},
+            {remote: true} %>
+        </th>
+        <th><%= t "admin.comments.index.content" %></th>
+        <th width="5%"><%= t "admin.comments.index.action" %></th>
+      </tr>
+    </thead>
+    <tbody>
+      <% if @comments.present? %>
+        <%= render @comments %>
+      <% end %>
+    </tbody>
+  </table>
+</div>
+<div class="ps-pagination">
+  <%= paginate @comments, theme: "twitter-bootstrap-3" %>
+</div>

@@ -1,12 +1,17 @@
 class OrdersController < ApplicationController
+  before_action :store_location!
   before_action :authenticate_user!, expect: %(edit destroy)
+  load_and_authorize_resource
+  rescue_from ActiveRecord::RecordNotFound do |exception|
+    respond_to do |format|
+      format.html{redirect_to orders_path, alert: exception.message}
+    end
+  end
   before_action :load_categories, only: %i(index new show)
   before_action :set_cart, expect: %(edit update)
   before_action :check_cart, only: %i(new create)
   before_action :load_items, only: %i(new create)
   before_action :create_order, only: :create
-  before_action :find_order, only: %i(show update)
-  before_action :correct_user, only: %i(show update)
 
   def index
     @orders = current_user.orders.page(params[:page]).per(Settings.order.per_page)
@@ -17,9 +22,7 @@ class OrdersController < ApplicationController
 
   def show; end
 
-  def new
-    @order = Order.new
-  end
+  def new; end
 
   def create
     if @order.save
@@ -48,11 +51,6 @@ class OrdersController < ApplicationController
     params.require(:order).permit :phone_number, :delivery_address
   end
 
-  def find_order
-    @order = Order.find_by id: params[:id]
-    redirect_to root_url if @order.blank?
-  end
-
   def create_order
     @order = current_user.orders.new order_params
     @order.grand_total = 0
@@ -63,9 +61,5 @@ class OrdersController < ApplicationController
 
   def load_categories
     @categories = Category.get_parent_categories
-  end
-
-  def correct_user
-    redirect_to root_url unless current_user == @order.user
   end
 end
