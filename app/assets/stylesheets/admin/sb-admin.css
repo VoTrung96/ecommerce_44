@@ -476,3 +476,103 @@ footer.sticky-footer {
     width: calc(100% - 55px);
   }
 }
+
+.ps-pagination {
+  text-align: center;
+}
+.ps-pagination::after {
+  clear: both;
+  content: "";
+  display: table;
+}
+.ps-pagination .pagination {
+  margin: 0;
+  display: inline-block;
+}
+.ps-pagination .pagination li {
+  display: inline-block;
+  margin-right: 15px;
+  text-align: center;
+}
+.ps-pagination .pagination li > a {
+  padding: 0 17px;
+  position: relative;
+  display: inline-block;
+  z-index: 30;
+  font-family: "Montserrat", sans-serif;
+  font-size: 16px;
+  color: #313131;
+  line-height: 50px;
+  -webkit-border-radius: 0;
+  -moz-border-radius: 0;
+  -ms-border-radius: 0;
+  border-radius: 0;
+  border: none;
+  background-color: transparent !important;
+}
+.ps-pagination .pagination li > a:before, .ps-pagination .pagination li > a:after {
+  content: '';
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  -webkit-transform: translate(-50%, -50%);
+  -moz-transform: translate(-50%, -50%);
+  -ms-transform: translate(-50%, -50%);
+  -o-transform: translate(-50%, -50%);
+  transform: translate(-50%, -50%);
+  z-index: -2;
+  -webkit-border-radius: 50%;
+  -moz-border-radius: 50%;
+  -ms-border-radius: 50%;
+  border-radius: 50%;
+  -webkit-transition: all 0.4s ease;
+  -moz-transition: all 0.4s ease;
+  transition: all 0.4s ease;
+}
+.ps-pagination .pagination li > a:before {
+  width: 50px;
+  height: 50px;
+  background-color: #e4e4e4;
+}
+.ps-pagination .pagination li > a:after {
+  width: 45px;
+  height: 45px;
+  background-color: #2AC37D;
+  z-index: -1;
+  visibility: hidden;
+  opacity: 0;
+}
+.ps-pagination .pagination li > a:hover {
+  color: #fff;
+}
+.ps-pagination .pagination li > a:hover:after {
+  visibility: visible;
+  opacity: 1;
+}
+.ps-pagination .pagination li.active {
+ border: none;
+}
+.ps-pagination .pagination li.active a {
+  color: #fff;
+}
+.ps-pagination .pagination li.active a:after {
+  visibility: visible;
+  opacity: 1;
+}
+@media (max-width: 479px) {
+  .ps-pagination .pagination li {
+    margin-right: 10px;
+  }
+  .ps-pagination .pagination li a {
+    padding: 0 12px;
+    font-size: 12px;
+  }
+  .ps-pagination .pagination li a:before {
+    width: 30px;
+    height: 30px;
+  }
+  .ps-pagination .pagination li a:after {
+    width: 35px;
+    height: 35px;
+  }
+}

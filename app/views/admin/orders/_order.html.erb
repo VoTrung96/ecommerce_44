@@ -1,0 +1,22 @@
+<tr>
+  <td><%= create_index params[:page], order_counter, Settings.order.per_page %></td>
+  <td><%= order.user_name %></td>
+  <td><%= l order.created_at, format: :long %></td>
+  <td><%= order.status %></td>
+  <td>
+    <%= link_to t("admin.orders.index.view"), admin_order_path(order),
+      class: "btn btn-info" %>
+    <% if order.pendding? %>
+      <%= link_to t("admin.orders.index.accept"), admin_order_path(order,
+        status: Settings.status.accept_status), class: "btn btn-primary",
+        method: :patch %>
+      <%= link_to t("admin.orders.index.reject"), admin_order_path(order,
+        status: Settings.status.reject_status), class: "btn btn-danger",
+        method: :patch %>
+    <% elsif order.reject? %>
+      <%= link_to t("admin.orders.trash"), admin_order_path(order),
+        class: "btn btn-primary", method: :delete,
+        data: {confirm: t("confirm.are_you_sure")} %>
+    <% end %>
+  </td>
+</tr>

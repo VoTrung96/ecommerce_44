@@ -21,5 +21,6 @@ Rails.application.routes.draw do
   namespace :admin do
     resources :categories, expect: :show
     resources :products, expect: :show
+    resources :orders, expect: [:new, :create, :edit]
   end
 end

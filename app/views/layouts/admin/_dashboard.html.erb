@@ -53,6 +53,12 @@
           </li>
         </ul>
       </li>
+      <li class="nav-item" data-toggle="tooltip" data-placement="right" title="Orders">
+        <%= link_to admin_orders_path, class: "nav-link" do %>
+          <i class="fa fa-fw fa-compress"></i>
+          <span class="nav-link-text"><%= t "admin.dashboard.orders" %></span>
+        <% end %>
+      </li>
     </ul>
     <ul class="navbar-nav sidenav-toggler">
       <li class="nav-item">

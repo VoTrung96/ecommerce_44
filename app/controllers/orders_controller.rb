@@ -27,7 +27,7 @@ class OrdersController < ApplicationController
       session[:cart] = {}
       redirect_to orders_path
     else
-      flash[:danger] = t "flash.danger"
+      flash.now[:danger] = t "flash.danger"
       render :new
     end
   end

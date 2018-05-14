@@ -9,4 +9,6 @@ class Order < ApplicationRecord
   validates :phone_number, presence: true, length: {maximum: Settings.validate.phone_max_length},
     format: {with: Settings.validate.PHONE_REGEX}
   validates :delivery_address, presence: true, length: {maximum: Settings.validate.address_max_length}
+
+  scope :sort_by_status, ->{order :status}
 end

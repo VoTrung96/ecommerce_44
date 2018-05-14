@@ -5,7 +5,7 @@
   <div class="ps-review__content">
     <header>
       <%= select_tag("rating[score]", options_for_select(Settings.score,
-        selected: rating.score), {:class => "ps-rating"}) %>
+        selected: rating.score), {class: "ps-rating"}) %>
       <p><%= link_to rating.user.name, "#" %>
         - <%= time_ago_in_words rating.created_at %> <%= t "products.show.ago" %></p>
     </header>

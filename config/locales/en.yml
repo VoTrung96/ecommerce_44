@@ -1,4 +1,7 @@
 en:
+  date:
+    formats:
+      long: "%d-%M-%Y"
   base_title: "Shoes Shop"
   currency: "$"
   product_price: "$ %{price}"
@@ -15,10 +18,17 @@ en:
     order_success: "Thank you for your order"
     orders_empty: "you dont have any order. lets shopping now"
     reject_success: "Rejected"
+    accept_success: "Accept Success"
     product_not_found: "Product not found"
     comment_success: "you added a comment"
     rating_success: "you added a review"
     out_of_range: "Score out of range [1, 5]"
+    order_not_found: "Order not found"
+    cart_contains_empty: "Cart Contains is empty"
+    status_not_available: "Status not available"
+    cant_update_status: "Can't update status"
+    cant_delete_order: "Can't delete order"
+    delete_success: "Deleted item success"
     add_success: "Added success"
     category_not_found: "Category not found!"
     delete_success: "Deleted item success"
@@ -184,6 +194,7 @@ en:
       add: "Add"
       products: "Products"
       logout: "Logout"
+      orders: "Orders"
     footer:
       copy_right: "Copyright © Your Website 2018"
       confirm: "Ready to Leave?"
@@ -206,3 +217,16 @@ en:
         category: "Category"
         action: "Action"
         management_products: "Management Products"
+    orders:
+      index:
+        customer: "Customer"
+        created_at: "Created At"
+        action: "Action"
+        status: "Status"
+        accept: "Accept"
+        reject: "Reject"
+        trash: "Trash"
+        management_orders: "Management Orders"
+        number: "No."
+      show:
+        order_detail: "Order Detail"
