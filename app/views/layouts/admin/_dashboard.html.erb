@@ -13,7 +13,7 @@
       </li>
 
       <li class="nav-item" data-toggle="tooltip" data-placement="right" title="Categories">
-        <%= link_to "#categories", class: "nav-link nav-link-collapse collapsed", :data => {toggle: "collapse", parent: "#categories"} do %>
+        <%= link_to "#categories", class: "nav-link nav-link-collapse collapsed", data: {toggle: "collapse", parent: "#categories"} do %>
           <i class="fa fa-fw fa-bars"></i>
           <span class="nav-link-text"><%= t "admin.dashboard.categories" %></span>
         <% end %>
@@ -34,7 +34,7 @@
       </li>
       <li class="nav-item" data-toggle="tooltip" data-placement="right" title="Products">
         <%= link_to "#products", class: "nav-link nav-link-collapse collapsed",
-          :data => {toggle: "collapse", parent: "#products"} do %>
+          data: {toggle: "collapse", parent: "#products"} do %>
           <i class="fa fa-fw fa-bars"></i>
           <span class="nav-link-text"><%= t "admin.dashboard.products" %></span>
         <% end %>
@@ -49,6 +49,12 @@
             <%= link_to new_admin_product_path, class: "nav-link" do %>
               <i class="fa fa-fw fa-plus"></i>
               <span class="nav-link-text"><%= t "admin.dashboard.add" %></span>
+            <% end %>
+          </li>
+          <li>
+            <%= link_to admin_import_path, class: "nav-link" do %>
+              <i class="fa fa-fw fa-upload"></i>
+              <span class="nav-link-text"><%= t "admin.dashboard.import" %></span>
             <% end %>
           </li>
         </ul>
@@ -70,7 +76,7 @@
     <ul class="navbar-nav ml-auto">
       <li class="nav-item">
         <%= link_to "", class: "nav-link",
-          :data => {toggle: "modal", target: "#exampleModal"} do %>
+          data: {toggle: "modal", target: "#exampleModal"} do %>
           <i class="fa fa-fw fa-sign-out"></i><%= t "admin.dashboard.logout" %>
         <% end %>
       </li>

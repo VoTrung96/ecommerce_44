@@ -3,9 +3,15 @@ class Product < ApplicationRecord
   has_many :images, dependent: :destroy
   has_many :comments, dependent: :destroy
   has_many :ratings, dependent: :destroy
-  has_many :cart_contains, dependent: :restrict_with_exception
+  has_many :cart_contains, dependent: :nullify
 
   delegate :name, to: :category, prefix: :category, allow_nil: true
+
+  validates :name, presence: true
+  validates :summary, presence: true
+  validates :price, presence: true, numericality: {greater_than_or_equal_to: 0}
+  validates :quantity, presence: true, numericality: {only_integer: true,
+    greater_than_or_equal_to: 0}
 
   scope :get_feature_products, (lambda do
     joins(:cart_contains)
@@ -17,4 +23,14 @@ class Product < ApplicationRecord
   scope :get_related_products, ->(id){where(category_id: id).limit(Settings.product.limit)}
   scope :sort_products, ->(sort){order("#{sort}": :asc)}
   scope :get_products_by_category, ->(ids){where("category_id in (?)", ids)}
+
+  def self.import file
+    spreadsheet = file
+    header = spreadsheet.row(1)
+    (2..spreadsheet.last_row).each do |i|
+      row = Hash[[header, spreadsheet.row(i)].transpose]
+      product = find_or_initialize_by(id: row["id"])
+      next unless product.update_attributes(row.to_hash)
+    end
+  end
 end

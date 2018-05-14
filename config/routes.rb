@@ -22,5 +22,8 @@ Rails.application.routes.draw do
     resources :categories, expect: :show
     resources :products, expect: :show
     resources :orders, expect: [:new, :create, :edit]
+    resources :images, only: :destroy
+    get "/import", to: "import_products#new"
+    post "/import", to: "import_products#create"
   end
 end

@@ -1,0 +1,14 @@
+<tr>
+  <td><%= create_index params[:page], product_counter, Settings.product.per_page_admin %></td>
+  <td>
+    <%= link_to "#", class: "ps-product__preview" do %>
+      <%= show_product_preview product %> <%= product.name %>
+    <% end %>
+  </td>
+  <td><%= product.category_name %></td>
+  <td>
+    <%= link_to "", edit_admin_product_path(product), class: "fa fa-edit" %>
+    <%= link_to "", admin_product_path(product), class: "fa fa-trash",
+      method: :delete, data: {confirm: t("confirm.are_you_sure")} %>
+  </td>
+</tr>

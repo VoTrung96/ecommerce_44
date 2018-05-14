@@ -3,6 +3,7 @@ users:
 product:
   limit: 8
   per_page: 12
+  per_page_admin: 10
 category:
   category_lv0: 0
   no_parent: 0

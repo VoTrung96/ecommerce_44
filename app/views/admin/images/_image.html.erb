@@ -1,0 +1,10 @@
+<% if image_counter < 4 %>
+  <div class="form-group col-md-3">
+    <%= file_field_tag "images[#{image_counter}]",
+      class: "form-control" %>
+    <%= image_tag get_image_name(image), size: "220x200", class:
+      "remove-#{image.id}" %>
+    <%= link_to "x", admin_image_path(image), class: "close remove-#{image.id}",
+      method: :delete, remote: true, title: "delete" %>
+  </div>
+<% end %>

@@ -5,6 +5,10 @@ git_source(:github) do |repo_name|
   "https://github.com/#{repo_name}.git"
 end
 
+gem "roo"
+gem "roo-xls"
+gem "carrierwave", "1.2.2"
+gem "mini_magick", "4.7.0"
 gem "faker", "1.7.3"
 gem "kaminari"
 gem "bootstrap-kaminari-views"

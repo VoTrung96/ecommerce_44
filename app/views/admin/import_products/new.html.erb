@@ -1,0 +1,16 @@
+<div class="card mb-3">
+  <div class="card-header">
+    <i class="fa fa-table"></i> <%= t ".import_file" %>
+  </div>
+  <div class="card-body">
+    <%= form_tag admin_import_path, multipart: true, class: "row" do %>
+      <div class="form-group col-md-4">
+        <%= file_field_tag :file, accept: ".csv,.xls,.xlsx",
+          class: "form-control", required: true %>
+      </div>
+      <div class="col-md-4">
+        <%= submit_tag t(".submit"), class: "btn btn-primary" %>
+      </div>
+    <% end %>
+  </div>
+</div>
