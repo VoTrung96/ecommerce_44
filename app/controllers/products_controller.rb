@@ -1,6 +1,6 @@
 class ProductsController < ApplicationController
   before_action :load_categories, only: %i(index show)
-  before_action :load_hash_categories, only: :index
+  before_action :load_categories_group_by_parent, only: :index
   before_action :find_product, only: :show
 
   def index
@@ -24,7 +24,7 @@ class ProductsController < ApplicationController
     @categories = Category.get_parent_categories
   end
 
-  def load_hash_categories
+  def load_categories_group_by_parent
     @hash_categories = Category.all.group_by(&:parent_id)
   end
 

@@ -1,0 +1,16 @@
+<% init_lv %>
+<tr>
+  <td><%= add_level %><%= category.name %></td>
+  <td><%= category.created_at %></td>
+  <td>
+    <%= link_to "", edit_admin_category_path(category), class: "fa fa-edit" %>
+    <%= link_to "", admin_category_path(category), class: "fa fa-trash",
+      method: :delete, :data => {confirm: t("confirm.are_you_sure")} %>
+  </td>
+</tr>
+<% if @hash_categories[category.id].present? %>
+  <% addition_lv %>
+  <%= render partial: "category", collection: @hash_categories[category.id],
+    as: :category %>
+  <% sub_lv %>
+<% end %>

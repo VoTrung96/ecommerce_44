@@ -10,6 +10,12 @@ module SessionsHelper
     redirect_to login_url
   end
 
+  def check_role
+    return if current_user.admin?
+    flash[:danger] = t "flash.not_permitted"
+    redirect_to root_path
+  end
+
   def remember user
     user.remember
     cookies.permanent.signed[:user_id] = user.id

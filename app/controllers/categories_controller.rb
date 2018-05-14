@@ -1,6 +1,6 @@
 class CategoriesController < ApplicationController
   before_action :load_categories, only: :show
-  before_action :load_hash_categories, only: :show
+  before_action :load_categories_group_by_parent, only: :show
   before_action :find_category, only: :show
 
   def show
@@ -14,7 +14,7 @@ class CategoriesController < ApplicationController
     @categories = Category.get_parent_categories
   end
 
-  def load_hash_categories
+  def load_categories_group_by_parent
     @hash_categories = Category.all.group_by(&:parent_id)
   end
 
@@ -25,10 +25,12 @@ class CategoriesController < ApplicationController
 
   def filter_products
     @products = if @sort == Settings.sortby.default
-                  @category.products.page(params[:page])
+                  Product.get_products_by_category(@category.branch_categories)
+                    .page(params[:page])
                     .per(Settings.product.per_page)
                 else
-                  @category.products.sort_products(@sort)
+                  Product.get_products_by_category(@category.branch_categories)
+                    .sort_products(@sort)
                     .page(params[:page])
                     .per(Settings.product.per_page)
                 end
