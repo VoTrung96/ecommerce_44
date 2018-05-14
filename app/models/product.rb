@@ -1,11 +1,21 @@
 class Product < ApplicationRecord
+  extend FriendlyId
+  friendly_id :slug_candidates, use: %i(slugged finders)
+
   belongs_to :category
   has_many :images, dependent: :destroy
   has_many :comments, dependent: :destroy
   has_many :ratings, dependent: :destroy
-  has_many :cart_contains, dependent: :restrict_with_exception
+  has_many :cart_contains, dependent: :nullify
 
   delegate :name, to: :category, prefix: :category, allow_nil: true
+  accepts_nested_attributes_for :images, allow_destroy: true
+
+  validates :name, presence: true
+  validates :summary, presence: true
+  validates :price, presence: true, numericality: {greater_than_or_equal_to: 0}
+  validates :quantity, presence: true, numericality: {only_integer: true,
+    greater_than_or_equal_to: 0}
 
   scope :get_feature_products, (lambda do
     joins(:cart_contains)
@@ -17,4 +27,12 @@ class Product < ApplicationRecord
   scope :get_related_products, ->(id){where(category_id: id).limit(Settings.product.limit)}
   scope :sort_products, ->(sort){order("#{sort}": :asc)}
   scope :get_products_by_category, ->(ids){where("category_id in (?)", ids)}
+
+  def slug_candidates
+    "#{name}-#{id}"
+  end
+
+  def should_generate_new_friendly_id?
+    name_changed? || super
+  end
 end

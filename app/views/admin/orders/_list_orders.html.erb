@@ -1,0 +1,26 @@
+<div class="row">
+  <table class="table table-bordered" width="100%" cellspacing="0">
+    <thead>
+      <tr>
+        <th width="5%"><%= t "admin.orders.index.number" %></th>
+        <th>
+          <%= sort_link @search, :user_name, t("admin.orders.index.customer"), {}, {remote: true} %>
+        </th>
+        <th>
+          <%= sort_link @search, :created_at,
+            t("admin.orders.index.created_at"), {}, {remote: true} %>
+        </th>
+        <th><%= t "admin.orders.index.status" %></th>
+        <th width="5%"><%= t "admin.orders.index.action" %></th>
+      </tr>
+    </thead>
+    <tbody>
+      <% if @orders.present? %>
+        <%= render @orders %>
+      <% end %>
+    </tbody>
+  </table>
+</div>
+<div class="ps-pagination">
+  <%= paginate @orders, theme: "twitter-bootstrap-3" %>
+</div>

@@ -19,7 +19,7 @@ class CategoriesController < ApplicationController
   end
 
   def find_category
-    @category = Category.find_by id: params[:id]
+    @category = Category.find_by slug: params[:id]
     redirect_to root_path if @category.blank?
   end
 

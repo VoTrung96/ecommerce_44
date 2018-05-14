@@ -8,4 +8,12 @@ module ApplicationHelper
     params_page = 1 if params_page.blank?
     (params_page.to_i - 1) * per_page.to_i + index.to_i + 1
   end
+
+  def store_location!
+    store_location_for(:user, request.fullpath)
+  end
+
+  def store_location!
+    store_location_for(:user, request.fullpath)
+  end
 end

@@ -5,6 +5,11 @@ git_source(:github) do |repo_name|
   "https://github.com/#{repo_name}.git"
 end
 
+gem "friendly_id"
+gem "ransack"
+gem "cancancan"
+gem "carrierwave", "1.2.2"
+gem "mini_magick", "4.7.0"
 gem "figaro"
 gem "devise"
 gem "faker", "1.7.3"
@@ -20,7 +25,6 @@ gem "sqlite3"
 gem "puma", "~> 3.7"
 gem "sass-rails", "~> 5.0"
 gem "uglifier", ">= 1.3.0"
-
 gem "coffee-rails", "~> 4.2"
 gem "turbolinks", "~> 5"
 gem "jbuilder", "~> 2.5"

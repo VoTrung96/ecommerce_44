@@ -1,4 +1,7 @@
 class Category < ApplicationRecord
+  extend FriendlyId
+  friendly_id :slug_candidates, use: %i(slugged finders)
+
   has_many :products, dependent: :destroy
   has_many :sub_categories, class_name: Category.name, foreign_key: :parent_id,
     dependent: :destroy, inverse_of: false
@@ -16,5 +19,13 @@ class Category < ApplicationRecord
 
   def branch_categories
     ([self] + child_categories).map(&:id).uniq
+  end
+
+  def slug_candidates
+    "#{name}-#{id}"
+  end
+
+  def should_generate_new_friendly_id?
+    name_changed? || super
   end
 end

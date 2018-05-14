@@ -1,0 +1,26 @@
+<div class="row">
+  <table class="table table-bordered" width="100%" cellspacing="0">
+    <thead>
+      <tr>
+        <th width="5%"><%= t "admin.users.index.number" %></th>
+        <th>
+          <%= sort_link @search, :name, t("admin.users.index.name"),
+            {default_order: :asc}, {remote: true} %>
+        </th>
+        <th>
+          <%= sort_link @search, :email, t("admin.users.index.email"),
+            {default_order: :asc}, {remote: true} %>
+        </th>
+        <th width="5%"><%= t ".action" %></th>
+      </tr>
+    </thead>
+    <tbody>
+      <% if @users.present? %>
+        <%= render @users %>
+      <% end %>
+    </tbody>
+  </table>
+</div>
+<div class="ps-pagination">
+  <%= paginate @users, theme: "twitter-bootstrap-3" %>
+</div>

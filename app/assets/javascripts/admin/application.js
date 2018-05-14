@@ -12,4 +12,5 @@
 //= require js/jquery.min
 //= require jquery_ujs
 //= require js/bootstrap.bundle.min
-//= require_tree ../admin
+//= require admin/sb-admin.min
+//= require admin/custom
