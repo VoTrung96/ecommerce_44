@@ -17,6 +17,8 @@ $(document).ready(function(){
       success: function(data){
         if (data.err == 1) {
           alert("product isn't enought quantity")
+        } else if (data.err == 2){
+          alert("product isn't exists")
         } else {
           $("#cart_quantity").html(data.quantity)
           if (imgtodrag) {
@@ -60,5 +62,52 @@ $(document).ready(function(){
         alert("Something went wrong")
       }
     });
-  })
-})
+  });
+
+  $(".plus").on("click", function(){
+    var productId = $(this).attr("product-id");
+    var oldQuantity = $("#quantity-" + productId).val()
+    var newQuantity = parseInt(oldQuantity) + 1
+    changQuantity(newQuantity, productId);
+
+  });
+
+  $(".minus").on("click", function(){
+    var productId = $(this).attr("product-id");
+    var oldQuantity = $("#quantity-" + productId).val()
+    var newQuantity = parseInt(oldQuantity) - 1
+
+    if(newQuantity >= 1){
+      changQuantity(newQuantity, productId);
+    } else {
+      alert("can't minus");
+    }
+  });
+});
+
+function changQuantity(newQuantity, productId){
+    $.ajax({
+      url: "/change",
+      type: "PATCH",
+      cache: false,
+      data: {
+        new_quantity : newQuantity,
+        product_id : productId
+      },
+      success: function(data){
+        if(data.err == 1){
+          alert("quantity isn't enought")
+        } else if (data.err == 2){
+          alert("product isn't exists")
+        } else{
+          $("#quantity-" + productId).val(newQuantity);
+          $("#cart_quantity").html(data.sum_quantity);
+          $("#total-" + productId).html(data.total);
+          $("#grandtotal").html(data.grand_total);
+        }
+      },
+      error: function (){
+        alert("Something went wrong")
+      }
+    });
+  }

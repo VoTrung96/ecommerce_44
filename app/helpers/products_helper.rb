@@ -17,6 +17,14 @@ module ProductsHelper
     check_image?(image) ? image.name : "shoe/no-image.jpg"
   end
 
+  def show_cart_preview item
+    image_tag get_image_name(item.product.images.first), size: "100x100"
+  end
+
+  def get_product_name item
+    item.product.name
+  end
+
   private
 
   def check_image? image

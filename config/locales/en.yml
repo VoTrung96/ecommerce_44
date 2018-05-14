@@ -7,6 +7,7 @@ en:
     session_danger: "Email or password is incorrect"
     login_danger: "Please login to continue"
     user_invalid: "User invalid"
+    cart_empty: "Cart is empty. Lets shopping now"
   add_to_cart: "Add to cart"
   header:
     address: "K34/54 Au Co, Da Nang"
@@ -112,3 +113,11 @@ en:
   sessions:
     new:
       login: "Login"
+  carts:
+    index:
+      product_name: "Product Name"
+      price: "Price"
+      quantity: "Quantity"
+      total: "Total"
+      check_out: "Process to checkout"
+      grand_total: "Grand total:"
