@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20180604011914) do
+ActiveRecord::Schema.define(version: 20180606084711) do
 
   create_table "cart_contains", force: :cascade do |t|
     t.integer "order_id"
@@ -19,6 +19,8 @@ ActiveRecord::Schema.define(version: 20180604011914) do
     t.float "price"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.datetime "deleted_at"
+    t.index ["deleted_at"], name: "index_cart_contains_on_deleted_at"
     t.index ["order_id"], name: "index_cart_contains_on_order_id"
     t.index ["product_id"], name: "index_cart_contains_on_product_id"
   end
@@ -28,6 +30,8 @@ ActiveRecord::Schema.define(version: 20180604011914) do
     t.integer "parent_id", default: 0
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.datetime "deleted_at"
+    t.index ["deleted_at"], name: "index_categories_on_deleted_at"
     t.index ["name"], name: "index_categories_on_name", unique: true
   end
 
@@ -57,6 +61,8 @@ ActiveRecord::Schema.define(version: 20180604011914) do
     t.integer "status", default: 0
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.datetime "deleted_at"
+    t.index ["deleted_at"], name: "index_orders_on_deleted_at"
     t.index ["user_id"], name: "index_orders_on_user_id"
   end
 
@@ -68,7 +74,9 @@ ActiveRecord::Schema.define(version: 20180604011914) do
     t.integer "quantity"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.datetime "deleted_at"
     t.index ["category_id"], name: "index_products_on_category_id"
+    t.index ["deleted_at"], name: "index_products_on_deleted_at"
   end
 
   create_table "ratings", force: :cascade do |t|
@@ -113,6 +121,11 @@ ActiveRecord::Schema.define(version: 20180604011914) do
     t.datetime "confirmation_sent_at"
     t.string "unconfirmed_email"
     t.index ["confirmation_token"], name: "index_users_on_confirmation_token", unique: true
+    t.string "provider"
+    t.string "uid"
+    t.datetime "deleted_at"
+    t.index ["confirmation_token"], name: "index_users_on_confirmation_token", unique: true
+    t.index ["deleted_at"], name: "index_users_on_deleted_at"
     t.index ["email"], name: "index_users_on_email", unique: true
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end

@@ -1,0 +1,28 @@
+<div class="row">
+  <table class="table table-bordered dataTable" width="100%" cellspacing="0">
+    <thead>
+      <tr>
+        <th width="5%">
+          <%= t "admin.products.index.number" %>
+        </th>
+        <th>
+          <%= sort_link @search, :name, t("admin.products.index.product_name"), {default_order: :asc}, {remote: true} %>
+        </th>
+        <th width="30%">
+          <%= sort_link @search, :category_name,
+            t("admin.products.index.category"),
+            {default_order: :asc}, {remote: true} %>
+        </th>
+        <th width="5%"><%= t "admin.products.index.action" %></th>
+      </tr>
+    </thead>
+    <tbody>
+      <% if @products.present? %>
+        <%= render @products %>
+      <% end %>
+    </tbody>
+  </table>
+</div>
+<div class="ps-pagination">
+  <%= paginate @products, theme: "twitter-bootstrap-3" %>
+</div>

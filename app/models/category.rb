@@ -2,7 +2,7 @@ class Category < ApplicationRecord
   has_many :products, dependent: :destroy
   has_many :sub_categories, class_name: Category.name, foreign_key: :parent_id,
     dependent: :destroy, inverse_of: false
-
+  acts_as_paranoid
   validates :name, presence: true, length: {maximum:
     Settings.validate.name_max_length}, uniqueness: {case_sensitive: false}
   scope :get_parent_categories, ->{where parent_id: Settings.category.category_lv0}

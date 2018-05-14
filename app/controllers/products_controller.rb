@@ -1,4 +1,5 @@
 class ProductsController < ApplicationController
+  before_action :store_location!, only: :show
   before_action :load_categories, only: %i(index show)
   before_action :load_categories_group_by_parent, only: :index
   before_action :find_product, only: :show
@@ -15,7 +16,6 @@ class ProductsController < ApplicationController
     @rating = Rating.find_by(product_id: @product.id, user_id: current_user.id) if current_user.present?
     @avg_score = calculate_avg_score @ratings
     @comments = @product.comments.sort_by_created_at
-    store_location
   end
 
   private

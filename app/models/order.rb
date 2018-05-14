@@ -3,6 +3,7 @@ class Order < ApplicationRecord
   has_many :cart_contains, dependent: :destroy
   delegate :email, to: :user, prefix: :user, allow_nil: true
   delegate :name, to: :user, prefix: :user, allow_nil: true
+  acts_as_paranoid
 
   enum status: %i(pendding accept reject)
 

@@ -5,7 +5,7 @@ class User < ApplicationRecord
   has_many :ratings, dependent: :destroy
   has_many :orders, dependent: :destroy
   has_many :user_suggestions, dependent: :destroy
-
+  acts_as_paranoid
   validates :name, presence: true, length: {maximum:
     Settings.validate.name_max_length}
   validates :phone_number, length: {maximum: Settings.validate.phone_max_length},

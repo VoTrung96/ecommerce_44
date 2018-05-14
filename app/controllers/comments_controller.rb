@@ -1,5 +1,5 @@
 class CommentsController < ApplicationController
-  before_action :authenticate_user!, only: :create
+  before_action :check_login!, only: :create
   before_action :find_product, only: :create
 
   def create
@@ -26,10 +26,9 @@ class CommentsController < ApplicationController
     render js: t("alert.product_not_found")
   end
 
-  def check_login
-    return if logged_in?
+  def check_login!
+    return if current_user.present?
     flash[:danger] = t "flash.login_danger"
-    store_location
-    render js: "window.location = '#{login_path}'"
+    render js: "window.location = '#{new_user_session_path}'"
   end
 end

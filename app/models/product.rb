@@ -3,9 +3,17 @@ class Product < ApplicationRecord
   has_many :images, dependent: :destroy
   has_many :comments, dependent: :destroy
   has_many :ratings, dependent: :destroy
-  has_many :cart_contains, dependent: :restrict_with_exception
+  has_many :cart_contains, dependent: :destroy
 
   delegate :name, to: :category, prefix: :category, allow_nil: true
+  accepts_nested_attributes_for :images, allow_destroy: true
+  acts_as_paranoid
+
+  validates :name, presence: true
+  validates :summary, presence: true
+  validates :price, presence: true, numericality: {greater_than_or_equal_to: 0}
+  validates :quantity, presence: true, numericality: {only_integer: true,
+    greater_than_or_equal_to: 0}
 
   scope :get_feature_products, (lambda do
     joins(:cart_contains)

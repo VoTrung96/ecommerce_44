@@ -39,7 +39,7 @@
           </tr>
         </thead>
         <tbody>
-          <%= render partial: "item_order", collection: @order.cart_contains, as: :item %>
+          <%= render partial: "item_order", collection: @order.cart_contains.with_deleted, as: :item %>
           <tr>
             <td class="ps-product-link" colspan="4">
               <%= t ".grand_total" %>

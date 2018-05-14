@@ -3,9 +3,12 @@ users:
 product:
   limit: 8
   per_page: 12
+  per_page_admin: 6
 category:
   category_lv0: 0
   no_parent: 0
+users:
+  per_page: 6
 sortby:
   default: "default"
   name: "name"
@@ -25,7 +28,7 @@ status:
   accept_status: 1
   reject_status: 2
 order:
-  per_page: 5
+  per_page: 6
 err:
   not_err: 0
   product_not_found: 2
@@ -33,10 +36,16 @@ err:
 score: [["1", "1"], ["2", "2"], ["3", "3"], ["4", "4"], ["5", "5"]]
 comments:
   content_max_length: 255
+  per_page_admin: 10
 rating:
   message_max_length: 255
   score_min: 1
   score_max: 5
+show_limit:
+  show_5: 5
+  show_10: 10
+  show_15: 25
+  show_50: 50
 passwords_controller: "passwords"
 registrations_controller: "registrations"
 confirmations_controller: "confirmations"

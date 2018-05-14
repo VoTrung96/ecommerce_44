@@ -1,7 +1,7 @@
 <% init_lv %>
 <tr>
   <td><%= add_level %><%= category.name %></td>
-  <td><%= category.created_at %></td>
+  <td><%= l category.created_at, format: :long %></td>
   <td>
     <%= link_to "", edit_admin_category_path(category), class: "fa fa-edit" %>
     <%= link_to "", admin_category_path(category), class: "fa fa-trash",
