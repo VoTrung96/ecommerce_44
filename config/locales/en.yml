@@ -34,12 +34,15 @@ en:
     delete_success: "Deleted item success"
     not_permitted: "Not Permitted"
     update_success: "Update success"
+    comment_not_found: "Comment not found"
     not_activated: "Account Not Activated"
     account_activated: "Account Activated"
     invalid_link: "Invalid ativation link"
+    user_not_found: "User not found"
   alert:
     wrong: "alert('something went wrong')"
     product_not_found: "alert('product not found')"
+    image_not_found: "alert('image not found')"
   confirm:
     are_you_sure: "Are you sure?"
   add_to_cart: "Add to cart"
@@ -95,9 +98,14 @@ en:
     category_name_lable: "Category Name"
     parent_lable: "Parent"
     submit: "Submit"
+    product_name_lable: "Product Name"
+    category_lable: "Category"
+    price_lable: "Price"
+    quantity_lable: "Quantity"
+    summary_lable: "Summary"
+    image_label: "Images"
     current_password_lable: "Current Password"
     new_password_lable: "New Password"
-
   shared_error:
     one: "The form contains %{count} error."
     other: "The form contains %{count} errors."
@@ -209,6 +217,8 @@ en:
       products: "Products"
       logout: "Logout"
       orders: "Orders"
+      comments: "Comments"
+      users: "Users"
     footer:
       copy_right: "Copyright © Your Website 2018"
       confirm: "Ready to Leave?"
@@ -231,6 +241,13 @@ en:
         category: "Category"
         action: "Action"
         management_products: "Management Products"
+        number: "No."
+      show:
+        order_detail: "Order Detail"
+      new:
+        add_new: "Add new product"
+      edit:
+        update: "Update product"
     orders:
       index:
         customer: "Customer"
@@ -242,8 +259,20 @@ en:
         trash: "Trash"
         management_orders: "Management Orders"
         number: "No."
+    comments:
+      index:
+        management_comments: "Management Comments"
+        username: "User Name"
+        product_name: "Product Name"
+        content: "Content"
       show:
         order_detail: "Order Detail"
+    users:
+      index:
+        number: "No."
+        name: "Name"
+        email: "Email"
+        action: "Action"
   mailer:
     hello: "<p>Hello %{email}!</p>"
     confirmation_content: "<p>You can confirm your account email through the link below:</p>"

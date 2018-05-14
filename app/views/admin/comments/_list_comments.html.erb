@@ -1,0 +1,21 @@
+<div class="table-responsive">
+  <table class="table table-bordered" width="100%" cellspacing="0">
+    <thead>
+      <tr>
+        <th width="5%"><input id="checkAll" name="checkAll" type="checkbox" /></th>
+        <th><%= t "admin.comments.index.username" %></th>
+        <th><%= t "admin.comments.index.product_name" %></th>
+        <th><%= t "admin.comments.index.content" %></th>
+        <th width="5%"><%= t "admin.comments.index.action" %></th>
+      </tr>
+    </thead>
+    <tbody>
+      <% if @comments.present? %>
+        <%= render @comments %>
+      <% end %>
+    </tbody>
+  </table>
+  <div class="ps-pagination">
+    <%= paginate @comments, theme: "twitter-bootstrap-3" %>
+  </div>
+</div>

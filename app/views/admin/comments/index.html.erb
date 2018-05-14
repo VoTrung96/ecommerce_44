@@ -1,0 +1,9 @@
+<div class="card mb-3">
+  <div class="card-header">
+    <%= submit_tag :trash, class: "del btn btn-primary hidden" %>
+    <i class="fa fa-table"></i> <%= t ".management_comments" %></div>
+  <div class="card-body">
+    <%= render "list_comments" %>
+  </div>
+</div>
+<%= render "admin/products/add_data_remote.js.erb" %>

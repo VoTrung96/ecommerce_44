@@ -1,18 +1,20 @@
 module Admin
   class CategoriesController < AdminController
-    before_action :find_category, only: %i(edit update destroy)
+    rescue_from ActiveRecord::RecordNotFound do |exception|
+      respond_to do |format|
+        format.html{redirect_to admin_orders_path, alert: exception.message}
+      end
+    end
+
     before_action :load_categories_group_by_parent, only: %i(index edit destroy)
     before_action :load_categories, only: :new
     before_action :load_categories_for_update, only: :edit
 
     def index; end
 
-    def new
-      @category = Category.new
-    end
+    def new; end
 
     def create
-      @category = Category.new category_params
       if @category.save
         flash[:success] = t "flash.add_success"
         redirect_to admin_categories_path
@@ -46,13 +48,6 @@ module Admin
     end
 
     private
-
-    def find_category
-      @category = Category.find_by id: params[:id]
-      return if @category.present?
-      flash[:danger] = t "flash.category_not_found"
-      redirect_to admin_categories_path
-    end
 
     def load_categories_group_by_parent
       @hash_categories = Category.all.group_by(&:parent_id)
