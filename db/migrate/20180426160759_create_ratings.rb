@@ -4,6 +4,7 @@ class CreateRatings < ActiveRecord::Migration[5.1]
       t.references :user, foreign_key: true
       t.references :product, foreign_key: true
       t.integer :score
+      t.text :message
 
       t.timestamps
     end

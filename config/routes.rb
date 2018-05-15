@@ -16,4 +16,6 @@ Rails.application.routes.draw do
   resources :users, expect: [:index, :show, :destroy]
   resources :carts, only: :index
   resources :orders, only: [:index, :show, :update]
+  resources :comments, only: :create
+  resources :ratings, only: :create
 end

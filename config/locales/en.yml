@@ -15,6 +15,13 @@ en:
     order_success: "Thank you for your order"
     orders_empty: "you dont have any order. lets shopping now"
     reject_success: "Rejected"
+    product_not_found: "Product not found"
+    comment_success: "you added a comment"
+    rating_success: "you added a review"
+    out_of_range: "Score out of range [1, 5]"
+  alert:
+    wrong: "alert('something went wrong')"
+    product_not_found: "alert('product not found')"
   add_to_cart: "Add to cart"
   header:
     address: "K34/54 Au Co, Da Nang"
@@ -63,6 +70,8 @@ en:
     password_lable: "Password"
     password_confirm_lable: "Password Confirmation"
     remember_lable: "Remember me?"
+    rating_lable: "Your Rating"
+    review_lable: "Your Reivew"
   shared_error:
     one: "The form contains %{count} error."
     other: "The form contains %{count} errors."
@@ -112,6 +121,9 @@ en:
       review: "REVIEW"
       comments: "COMMENTS"
       quick_review: "QUICK REVIEW"
+      submit: "Submit"
+      ago: "ago"
+      add_your_review: "ADD YOUR REVIEW"
   users:
     new:
       signup: "Sign Up"

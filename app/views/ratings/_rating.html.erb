@@ -1,0 +1,14 @@
+<div class="ps-review">
+  <div class="ps-review__thumbnail">
+    <%= image_tag "user/1.jpg" %>
+  </div>
+  <div class="ps-review__content">
+    <header>
+      <%= select_tag("rating[score]", options_for_select(Settings.score,
+        selected: rating.score), {:class => "ps-rating"}) %>
+      <p><%= link_to rating.user.name, "#" %>
+        - <%= time_ago_in_words rating.created_at %> <%= t "products.show.ago" %></p>
+    </header>
+    <p><%= rating.message %></p>
+  </div>
+</div>

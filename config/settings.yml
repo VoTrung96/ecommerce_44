@@ -29,3 +29,10 @@ err:
   not_err: 0
   product_not_found: 2
   not_enought_quantity: 1
+score: [["1", "1"], ["2", "2"], ["3", "3"], ["4", "4"], ["5", "5"]]
+comments:
+  content_max_length: 255
+rating:
+  message_max_length: 255
+  score_min: 1
+  score_max: 5

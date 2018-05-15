@@ -1,0 +1,22 @@
+<%= form_for(:rating, url: ratings_path, class: "ps-product__review") do |f| %>
+  <%= f.hidden_field :product_id, value: @product.id %>
+  <h4><%= t "products.show.add_your_review" %></h4>
+  <div class="row">
+    <div class="col-lg-6 col-md-6 col-sm-6 col-xs-12 ">
+      <div class="form-group">
+        <%= f.label t("form.rating_lable") %>
+        <%= select_tag("rating[score]", options_for_select(Settings.score),
+          {:class => "ps-rating"}) %>
+      </div>
+    </div>
+    <div class="col-lg-8 col-md-8 col-sm-6 col-xs-12 ">
+      <div class="form-group">
+        <%= f.label t("form.review_lable") %>
+        <%= f.text_area :message, class: "form-control", row: "4", required: "" %>
+      </div>
+      <div class="form-group">
+        <%= f.submit t("products.show.submit"), class: "ps-btn ps-btn--sm" %>
+      </div>
+    </div>
+  </div>
+<% end %>
