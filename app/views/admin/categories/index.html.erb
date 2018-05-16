@@ -1,0 +1,23 @@
+<div class="card mb-3">
+  <div class="card-header">
+    <i class="fa fa-table"></i> <%= t ".management_categories" %></div>
+  <div class="card-body">
+    <div class="table-responsive">
+      <table class="table table-bordered" width="100%" cellspacing="0">
+        <thead>
+          <tr>
+            <th><%= t ".name" %></th>
+            <th><%= t ".created_at" %></th>
+            <th><%= t ".action" %></th>
+          </tr>
+        </thead>
+        <tbody>
+          <% if @hash_categories.present? && @hash_categories[0].present? %>
+            <%= render partial: "category", collection: @hash_categories[0],
+              as: :category %>
+          <% end %>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</div>

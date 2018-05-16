@@ -18,4 +18,8 @@ Rails.application.routes.draw do
   resources :orders, only: [:index, :show, :update]
   resources :comments, only: :create
   resources :ratings, only: :create
+  namespace :admin do
+    resources :categories, expect: :show
+    resources :products, expect: :show
+  end
 end

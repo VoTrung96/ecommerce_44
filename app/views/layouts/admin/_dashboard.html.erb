@@ -1,0 +1,73 @@
+<nav class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top" id="mainNav">
+  <%= link_to t("admin.dashboard.admin"), "#", class: "navbar-brand" %>
+  <button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
+    <span class="navbar-toggler-icon"></span>
+  </button>
+  <div class="collapse navbar-collapse" id="navbarResponsive">
+    <ul class="navbar-nav navbar-sidenav" id="exampleAccordion">
+      <li class="nav-item" data-toggle="tooltip" data-placement="right" title="Dashboard">
+        <%= link_to "", class: "nav-link" do %>
+          <i class="fa fa-fw fa-dashboard"></i>
+          <span class="nav-link-text"><%= t "admin.dashboard.dashboard" %></span>
+        <% end %>
+      </li>
+
+      <li class="nav-item" data-toggle="tooltip" data-placement="right" title="Categories">
+        <%= link_to "#categories", class: "nav-link nav-link-collapse collapsed", :data => {toggle: "collapse", parent: "#categories"} do %>
+          <i class="fa fa-fw fa-bars"></i>
+          <span class="nav-link-text"><%= t "admin.dashboard.categories" %></span>
+        <% end %>
+        <ul class="sidenav-second-level collapse" id="categories">
+          <li>
+            <%= link_to admin_categories_path, class: "nav-link" do %>
+              <i class="fa fa-fw fa-bars"></i>
+              <span class="nav-link-text"><%= t "admin.dashboard.categories" %></span>
+            <% end %>
+          </li>
+          <li>
+            <%= link_to new_admin_category_path, class: "nav-link" do %>
+              <i class="fa fa-fw fa-plus"></i>
+              <span class="nav-link-text"><%= t "admin.dashboard.add" %></span>
+            <% end %>
+          </li>
+        </ul>
+      </li>
+      <li class="nav-item" data-toggle="tooltip" data-placement="right" title="Products">
+        <%= link_to "#products", class: "nav-link nav-link-collapse collapsed",
+          :data => {toggle: "collapse", parent: "#products"} do %>
+          <i class="fa fa-fw fa-bars"></i>
+          <span class="nav-link-text"><%= t "admin.dashboard.products" %></span>
+        <% end %>
+        <ul class="sidenav-second-level collapse" id="products">
+          <li>
+            <%= link_to admin_products_path, class: "nav-link" do %>
+              <i class="fa fa-fw fa-bars"></i>
+              <span class="nav-link-text"><%= t "admin.dashboard.products" %></span>
+            <% end %>
+          </li>
+          <li>
+            <%= link_to new_admin_product_path, class: "nav-link" do %>
+              <i class="fa fa-fw fa-plus"></i>
+              <span class="nav-link-text"><%= t "admin.dashboard.add" %></span>
+            <% end %>
+          </li>
+        </ul>
+      </li>
+    </ul>
+    <ul class="navbar-nav sidenav-toggler">
+      <li class="nav-item">
+        <a class="nav-link text-center" id="sidenavToggler">
+          <i class="fa fa-fw fa-angle-left"></i>
+        </a>
+      </li>
+    </ul>
+    <ul class="navbar-nav ml-auto">
+      <li class="nav-item">
+        <%= link_to "", class: "nav-link",
+          :data => {toggle: "modal", target: "#exampleModal"} do %>
+          <i class="fa fa-fw fa-sign-out"></i><%= t "admin.dashboard.logout" %>
+        <% end %>
+      </li>
+    </ul>
+  </div>
+</nav>

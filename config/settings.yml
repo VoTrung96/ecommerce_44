@@ -5,6 +5,7 @@ product:
   per_page: 12
 category:
   category_lv0: 0
+  no_parent: 0
 sortby:
   default: "default"
   name: "name"
