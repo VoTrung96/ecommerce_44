@@ -34,6 +34,7 @@ en:
     delete_success: "Deleted item success"
     not_permitted: "Not Permitted"
     update_success: "Update success"
+    user_not_found: "User not found"
   alert:
     wrong: "alert('something went wrong')"
     product_not_found: "alert('product not found')"
@@ -195,6 +196,7 @@ en:
       products: "Products"
       logout: "Logout"
       orders: "Orders"
+      users: "Users"
     footer:
       copy_right: "Copyright © Your Website 2018"
       confirm: "Ready to Leave?"
@@ -230,3 +232,9 @@ en:
         number: "No."
       show:
         order_detail: "Order Detail"
+    users:
+      index:
+        number: "No."
+        name: "Name"
+        email: "Email"
+        action: "Action"

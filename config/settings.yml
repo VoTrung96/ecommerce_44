@@ -6,6 +6,8 @@ product:
 category:
   category_lv0: 0
   no_parent: 0
+users:
+  per_page: 10
 sortby:
   default: "default"
   name: "name"

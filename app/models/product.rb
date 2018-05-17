@@ -3,7 +3,7 @@ class Product < ApplicationRecord
   has_many :images, dependent: :destroy
   has_many :comments, dependent: :destroy
   has_many :ratings, dependent: :destroy
-  has_many :cart_contains, dependent: :restrict_with_exception
+  has_many :cart_contains, dependent: :nullify
 
   delegate :name, to: :category, prefix: :category, allow_nil: true
 

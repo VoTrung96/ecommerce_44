@@ -1,0 +1,26 @@
+<div class="card mb-3">
+  <div class="card-header">
+    <i class="fa fa-table"></i> <%= t ".management_orders" %></div>
+  <div class="card-body">
+    <div class="table-responsive">
+      <table class="table table-bordered" width="100%" cellspacing="0">
+        <thead>
+          <tr>
+            <th><%= t ".number" %></th>
+            <th><%= t ".name" %></th>
+            <th><%= t ".email" %></th>
+            <th><%= t ".action" %></th>
+          </tr>
+        </thead>
+        <tbody>
+          <% if @users.present? %>
+            <%= render @users %>
+          <% end %>
+        </tbody>
+      </table>
+      <div class="ps-pagination">
+        <%= paginate @users, theme: "twitter-bootstrap-3" %>
+      </div>
+    </div>
+  </div>
+</div>

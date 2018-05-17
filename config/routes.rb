@@ -22,5 +22,6 @@ Rails.application.routes.draw do
     resources :categories, expect: :show
     resources :products, expect: :show
     resources :orders, expect: [:new, :create, :edit]
+    resources :users, expect: :show
   end
 end

@@ -1,0 +1,11 @@
+<tr>
+  <td><%= create_index params[:page], user_counter, Settings.users.per_page %></td>
+  <td><%= user.name %></td>
+  <td><%= user.email %></td>
+  <td>
+    <% if user.subcriber? %>
+      <%= link_to "", admin_user_path(user), class: "fa fa-trash",
+        method: :delete, data: {confirm: t("confirm.are_you_sure")} %>
+    <% end %>
+  </td>
+</tr>
