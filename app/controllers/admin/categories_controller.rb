@@ -17,7 +17,7 @@ module Admin
         flash[:success] = t "flash.add_success"
         redirect_to admin_categories_path
       else
-        flash[:danger] = t "flash.danger"
+        flash.now[:danger] = t "flash.danger"
         load_categories
         render :new
       end
@@ -30,7 +30,7 @@ module Admin
         flash[:success] = t "flash.update_sucess"
         redirect_to admin_categories_path
       else
-        flash[:danger] = t "flash.danger"
+        flash.now[:danger] = t "flash.danger"
         load_categories_for_update
         render :edit
       end

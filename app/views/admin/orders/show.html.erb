@@ -1,0 +1,55 @@
+<div class="card mb-3">
+  <div class="card-header">
+    <i class="fa fa-table"></i> <%= t ".order_detail" %></div>
+  <div class="card-body">
+    <div class="table-responsive">
+      <table class="table" width="100%" cellspacing="0">
+        <thead>
+          <tr>
+            <th><%= t "orders.show.name" %></th>
+            <th><%= @order.user_name %></th>
+          </tr>
+          <tr>
+            <th><%= t "orders.show.email" %></th>
+            <th><%= @order.user_email %></th>
+          </tr>
+          <tr>
+            <th><%= t "orders.show.delivery_address" %></th>
+            <th><%= @order.delivery_address %></th>
+          </tr>
+          <tr>
+            <th><%= t "orders.show.phone_number" %></th>
+            <th><%= @order.phone_number %></th>
+          </tr>
+          <tr>
+            <th><%= t "orders.show.date_create" %></th>
+            <th><%= l @order.created_at, format: :long %></th>
+          </tr>
+          <tr>
+            <th><%= t ".status" %></th>
+            <th><%= @order.status %></th>
+          </tr>
+        </thead>
+      </table>
+      <table class="table table-bordered" width="100%" cellspacing="0">
+        <thead>
+          <tr>
+            <th><%= t "orders.show.product" %></th>
+            <th><%= t "orders.show.price" %></th>
+            <th><%= t "orders.show.quantity" %></th>
+            <th><%= t "orders.show.total" %></th>
+          </tr>
+        </thead>
+        <tbody>
+          <%= render partial: "orders/item_order", collection: @order.cart_contains, as: :item %>
+          <tr>
+            <td class="ps-product-link" colspan="4">
+              <%= t "orders.show.grand_total" %>
+              <%= t "product_price", price: @order.grand_total %>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</div>

@@ -14,7 +14,9 @@
         </div>
         <div class="ps-shoe__detail">
           <%= link_to product.name, product, class: "ps-shoe__name" %>
-          <span class="ps-shoe__price"><%= product.price %> <%= Settings.unit %></span>
+          <span class="ps-shoe__price">
+            <%= t "product_price", price: product.price %>
+          </span>
         </div>
       </div>
     </div>

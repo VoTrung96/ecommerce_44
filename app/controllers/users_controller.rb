@@ -15,7 +15,7 @@ class UsersController < ApplicationController
       flash[:success] = t "flash.wellcome"
       redirect_to edit_user_path @user
     else
-      flash[:danger] = t "flash.danger"
+      flash.now[:danger] = t "flash.danger"
       render :new
     end
   end
@@ -27,7 +27,7 @@ class UsersController < ApplicationController
       flash[:success] = t "flash.update_profile_success"
       redirect_to edit_user_path @user
     else
-      flash[:danger] = t "flash.danger"
+      flash.now[:danger] = t "flash.danger"
       render :edit
     end
   end
