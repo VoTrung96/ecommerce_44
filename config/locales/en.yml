@@ -34,6 +34,9 @@ en:
     delete_success: "Deleted item success"
     not_permitted: "Not Permitted"
     update_success: "Update success"
+    not_activated: "Account Not Activated"
+    account_activated: "Account Activated"
+    invalid_link: "Invalid ativation link"
   alert:
     wrong: "alert('something went wrong')"
     product_not_found: "alert('product not found')"
@@ -92,6 +95,9 @@ en:
     category_name_lable: "Category Name"
     parent_lable: "Parent"
     submit: "Submit"
+    current_password_lable: "Current Password"
+    new_password_lable: "New Password"
+
   shared_error:
     one: "The form contains %{count} error."
     other: "The form contains %{count} errors."
@@ -126,9 +132,6 @@ en:
       name_lable: "Name"
       email_lable: "Email"
       message_lable: "Your Message"
-  users:
-    new:
-      signup: "Sign Up"
   products:
     index:
       category: "Category"
@@ -150,6 +153,17 @@ en:
     edit:
       btn_text: "Update"
       profile: "Profile"
+    confirmation:
+      re_confirmation: "Re Confirmation"
+      confirm: "Confirm"
+      not_receive_confirmation: "Didn't receive confirmation instructions?"
+    password:
+      forgot_your_password: "Forgot your password?"
+      submit: "Submit"
+      reset_password: "ReSet Password"
+      password: "Password"
+      change_password: "Change Password"
+      password_min: "%{min} characters minimum"
   sessions:
     new:
       login: "Login"
@@ -230,3 +244,14 @@ en:
         number: "No."
       show:
         order_detail: "Order Detail"
+  mailer:
+    hello: "<p>Hello %{email}!</p>"
+    confirmation_content: "<p>You can confirm your account email through the link below:</p>"
+    confirm_your_account: "Confirm your account"
+    password_change_content: "<p>We're contacting you to notify you that your password has been changed.</p>"
+    reset_password_content: "<p>Someone has requested a link to change your password.
+      You can do this through the link below.</p>
+      <p>%{link_reset}</p>
+      <p>If you didn't request this, please ignore this email.</p>
+      <p>Your password won't change until you access the link above and create a new one.</p>"
+    change_your_password: "Change your password"

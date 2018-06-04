@@ -37,3 +37,6 @@ rating:
   message_max_length: 255
   score_min: 1
   score_max: 5
+passwords_controller: "passwords"
+registrations_controller: "registrations"
+confirmations_controller: "confirmations"

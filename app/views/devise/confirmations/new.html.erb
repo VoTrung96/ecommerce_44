@@ -1,0 +1,25 @@
+<div class="ps-contact ps-section pb-80">
+  <div class="ps-container">
+    <div class="row">
+      <div class="col-lg-6 col-md-6 col-sm-12 col-xs-12 col-md-offset-4">
+        <div class="ps-section__header mb-50">
+          <h2 class="ps-section__title" data-mask="<%= t "users.confirmation.confirm" %>">
+            <%= t "users.confirmation.re_confirmation" %>
+          </h2>
+          <%= form_for(resource, as: resource_name, url: confirmation_path(resource_name)) do |f| %>
+            <%= devise_error_messages! %>
+            <div class="row">
+              <div class="form-group">
+                <%= f.label t("form.email_lable") %>
+                <%= f.email_field :email, value: (resource.pending_reconfirmation? ? resource.unconfirmed_email : resource.email), class: "form-control" %>
+              </div>
+              <div class="form-group">
+                <%= f.submit t("users.confirmation.confirm"), class: "ps-btn" %>
+              </div>
+            </div>
+          <% end %>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

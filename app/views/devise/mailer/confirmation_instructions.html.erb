@@ -1,0 +1,5 @@
+<%= raw t("mailer.hello", email: @email) %>
+
+<%= raw t("mailer.confirmation_content") %>
+
+<p><%= link_to t("mailer.confirm_your_account"), confirmation_url(@resource, confirmation_token: @token) %></p>

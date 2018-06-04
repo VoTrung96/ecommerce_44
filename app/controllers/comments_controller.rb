@@ -1,5 +1,6 @@
 class CommentsController < ApplicationController
-  before_action :check_login, :find_product, only: :create
+  before_action :authenticate_user!, only: :create
+  before_action :find_product, only: :create
 
   def create
     @comment = current_user.comments.build comment_params

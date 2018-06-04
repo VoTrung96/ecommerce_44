@@ -5,6 +5,8 @@ git_source(:github) do |repo_name|
   "https://github.com/#{repo_name}.git"
 end
 
+gem "figaro"
+gem "devise"
 gem "faker", "1.7.3"
 gem "kaminari"
 gem "bootstrap-kaminari-views"

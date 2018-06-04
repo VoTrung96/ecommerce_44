@@ -1,0 +1,7 @@
+<%- if devise_mapping.recoverable? && controller_name != Settings.passwords_controller && controller_name != Settings.registrations_controller %>
+  <%= link_to t("users.password.forgot_your_password"), new_password_path(resource_name) %><br />
+<% end -%>
+
+<%- if devise_mapping.confirmable? && controller_name != Settings.confirmations_controller %>
+  <%= link_to t("users.confirmation.not_receive_confirmation"), new_confirmation_path(resource_name) %><br />
+<% end -%>
