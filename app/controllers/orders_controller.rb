@@ -1,5 +1,5 @@
 class OrdersController < ApplicationController
-  before_action :logged_in_user, expect: %(edit destroy)
+  before_action :authenticate_user!, expect: %(edit destroy)
   before_action :load_categories, only: %i(index new show)
   before_action :set_cart, expect: %(edit update)
   before_action :check_cart, only: %i(new create)
@@ -66,6 +66,6 @@ class OrdersController < ApplicationController
   end
 
   def correct_user
-    redirect_to root_url unless current_user? @order.user
+    redirect_to root_url unless current_user == @order.user
   end
 end

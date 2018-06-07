@@ -20,7 +20,7 @@
       <div class="modal-body"><%= t "admin.footer.intruction" %></div>
       <div class="modal-footer">
         <button class="btn btn-secondary" type="button" data-dismiss="modal"><%= t "admin.footer.cancle" %></button>
-        <%= link_to t("admin.dashboard.logout"), logout_path, class: "btn btn-primary", method: :delete %>
+        <%= link_to t("admin.dashboard.logout"), destroy_user_session_path, class: "btn btn-primary", method: :delete %>
       </div>
     </div>
   </div>
